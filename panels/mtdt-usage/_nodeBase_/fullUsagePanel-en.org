@@ -1,0 +1,595 @@
+* B|
+####+BEGIN: bxPanel:common/title-plus
+#+title: mailings/mtdt-usage
+#+roam_tags: branch
+#+roam_key: mail/mailings/mtdt-usage
+[[roam:mail/mailings]]
+####+END
+####+BEGIN: blee:bxPanel:topPanelControls
+*  [[elisp:(org-cycle)][|#Control|]] :: [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] [[elisp:(save-buffer)][Save]] [[elisp:(kill-buffer)][Quit]] [[elisp:(bury-buffer)][Bury]]  [[elisp:(magit)][Magit]]  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(bap:magit:bisos:current-bpo-repos/visit)][BPO-Repos-Magit]] ||
+**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]]
+**  [[elisp:(blee:menu-sel:comeega:maintenance:popupMenu)][||Maintenance]]
+**  This File :: *= /bisos/git/auth/bxRepos/blee-binders/blee-core/mail/mailings/mtdt-usage/_nodeBase_/fullUsagePanel-en.org =*
+*  [[elisp:(org-cycle)][|#Select|]]  :: (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(lsip-local-run-command-here "echo pushd dest")][echo pushd dir]] || [[elisp:(lsip-local-run-command-here "lsf")][lsf]] || [[elisp:(lsip-local-run-command-here "pwd")][pwd]] |
+**  [[elisp:(org-cycle)][|#Destinations|]] :: [[Evolution]] | [[Maintainers]]  [[elisp:(org-cycle)][| ]]
+**  #See:  [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]  E|
+####+END
+####+BEGIN: blee:bxPanel:title :panelType "=bxPanel=" :title "auto"
+* [[elisp:(show-all)][(>]] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+*   [[img-link:file:/bisos/blee/env/images/fpfByStarElipseTop-50.png][http://www.freeprotocols.org]]_ _   ~Node:: mail/mailings -- mtdt-usage~   [[img-link:file:/bisos/blee/env/images/fpfByStarElipseBottom-50.png][http://www.by-star.net]]
+* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:bxPanel:terseTreeNavigator :panelsList "bxPanel"
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:terseTreeNavigator)][dbf]]
+* +
+*                                        *━━━━━━━━━━━━━━━━━━━━━━━━*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/distributions/_nodeBase_")][ = /<distributions>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-conceptAndDesign/_nodeBase_")][ = /<mtdt-conceptAndDesign>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-devel/_nodeBase_")][ = /<mtdt-devel>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-usage/_nodeBase_")][ = /<mtdt-usage>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/names/_nodeBase_")][ = /<names>/ = ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/recipients/_nodeBase_")][ = /<recipients>/ = ]] *|*
+*   /Ancestors/  :: [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/mail/mailings/_nodeBase_")][ =mailings= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/mail/_nodeBase_")][ =mail= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/_nodeBase_")][ =blee-core= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/_nodeBase_")][ = /<panels>/ = ]] *|* [[elisp:(dired "//bisos")][ ~bisos~ ]] *|*
+*                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_                          [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :title "Overview" :anchor "Panel"
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Overview:* |]] <<Panel>>   [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** This panle buils on the concepts of  [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/emacs-mcdt/mcdt-conceptAndDesign/_nodeBase_")][ =mcdt-conceptAndDesign= ]]
+** Old panel is at:
+** It is oriented towards usage. It is broken into two workflows.
+** B|
+* +
+* Pkgs Base: file:/bisos/git/bxRepos/blee/mcdt
+* -
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Mailing Composition Workflow -- ~Create~ --" :anchor "" :extraInfo "/create/"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Mailing Composition Workflow -- ~Create~ --_: |]]  /create/  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** This section focusses on mailings selection, editable mailings not distribution
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailing Composition ICMs and Bases" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailing Composition ICMs and Bases:* |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "startMailing.sh" :comment "Create base mailings directory" :afterComment "and files"
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "startMailing.sh -i examples")][startMailing.sh]]  [[elisp:(lsip-local-run-command "startMailing.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "startMailing.sh -i describe")][describe]] *|*  =Create base mailings directory= *|*  and files [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "lcntProc.sh mailing" :comment "Must run in an LCNT base" :afterComment "After startMailingSetup.sh"
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "lcntProc.sh mailing -i examples")][lcntProc.sh mailing]]  [[elisp:(lsip-local-run-command "lcntProc.sh mailing -i visit")][visit]]  [[elisp:(lsip-local-run-command "lcntProc.sh mailing -i describe")][describe]] *|*  =Must run in an LCNT base= *|*  After startMailingSetup.sh [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Fresh LCNT Mailings Creation With startMailing.sh" :anchor "" :extraInfo "~Mailing Creation~ -- /LCNT/"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Fresh LCNT Mailings Creation With startMailing.sh:* |]]  ~Mailing Creation~ -- /LCNT/  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing Creation:
+*** +
+***  Run startMailingSetup.sh -h -v -n showRun -p pdf=pdf -i composeStart dated
+***  in mailing/compose/dated-23xx Run lcntProc.sh mailing
+***  Run lcntProc.sh -v -n showRun -p enabled="./LCNT-INFO/Builds/enabledList" -p extent="build+view+release+compose" -i lcntBuild all
+***  Run lcntProc.sh -v -n showRun -p extent="compose" -i lcntBuild cur
+***  Send out the message
+*** --------------
+***  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i examples")][bueMailingSetup.sh
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Fresh orgMsg Mailings Creation With startMailing.sh" :anchor "" :extraInfo "~Mailing Creation~ -- /orgMsg/"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Fresh orgMsg Mailings Creation With startMailing.sh:* |]]  ~Mailing Creation~ -- /orgMsg/  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing Creation:
+*** +
+***  Run startMailing.sh -h -v -n showRun -p pdf=pdf -i composeOrgMsgStart dated
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Fresh html Mailings Creation With startMailing.sh" :anchor "" :extraInfo "~Mailing Creation~ -- /html/"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Fresh html Mailings Creation With startMailing.sh:* |]]  ~Mailing Creation~ -- /html/  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing Creation:
+*** +
+***  Run startMailing.sh -h -v -n showRun -p pdf=pdf -i composeHtmlStart dated
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Fresh Text Mailings Creation With startMailing.sh" :anchor "" :extraInfo "~Mailing Creation~ -- /text/"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Fresh Text Mailings Creation With startMailing.sh:* |]]  ~Mailing Creation~ -- /text/  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing Creation:
+*** +
+***  Run startMailing.sh -h -v -n showRun -p pdf=pdf -i composeTextStart dated
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Add Mailings to Existing LCNT" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Add Mailings to Existing LCNT:* |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing Creation:
+*** +
+***  in lcntBase Run lcntProc.sh mailing
+***  lcntProc.sh -v -n showRun -f -i mailingAsBuildName
+***  mailingFileGen
+***  Run lcntProc.sh -v -n showRun -p extent="compose" -i lcntBuild cur
+***  Send out the message
+*** --------------
+***  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i examples")][bueMailingSetup.sh
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Mailing Composition Workflow -- ~process~ --" :anchor "" :extraInfo "/invoke+edit+send/"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Mailing Composition Workflow -- ~process~ --_: |]]  /invoke+edit+send/  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** This section focusses on mailings selection, editable mailings not distribution
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailings Derivation and Selection Panel" :anchor "" :extraInfo "Pre-activity. After Mailings Creation"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailings Derivation and Selection Panel:* |]]  Pre-activity. After Mailings Creation  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Initiated with F3-c-c which is a set of dblocks and editable.
+** Adding  Mailings Selection Panel for on-demand usage.
+*** +
+*** Go to the panel
+*** Add the mailing using dblock at the right place.
+*** automated generation of these is also a feature. To be implemented later.
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Interactive Mailings Invocation -- From Org and Bbdb and " :anchor "" :extraInfo "Regular Activity"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Interactive Mailings Invocation -- From Org and Bbdb:* |]]  Regular Activity  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Select from the Mailings Selection buffer.
+** Choose "compose" for content and header editing.
+** Choose "originate" for header editing.
+** Both result into creation of a Mailing-Buffer.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :sep t :title "Mailing Invokation With Args" :anchor "" :extraInfo "From browser, bbdb, any, and message With Args"
+** /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+** [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| /Mailing Invokation With Args:/ |]]  From browser, bbdb, any, and message With Args  [[elisp:(org-shifttab)][<)]] E|
+####+END
+*** +
+*** NOTE: This section is OLD and unverified.
+***      ============ Invocation Facilities Overview
+***    ========    /From Anywhere/
+***    ======== bxms-compose-MailingName       -- ANYWHERE -- Originate A Fresh Message -- Or Augment An Existing Message
+***    ========    /From Message Mode/
+***    ======== bxms-compose-MailingName       -- MAIL BUFFER  -- (1) Append  (2) Replace Body  (4) Replace Subject+Body
+****   ====    meta x: bxms-compose-MailingName         -- (1) append subject -- append body -- append from, envelope -- append cc, bcc
+****   ====    ctl u meta x: bxms-compose-MailingName   -- (4) clear+append subject -- clear+append body  -- Used For Second Level Start Selections
+****   ====    ctl u 2 meta x: bxms-compose-MailingName -- (2) append subject -- clear+append body  -- Used with bxms-web-xxx
+***    ======== bxms-batch-MailingName         -- = bx-msend-MailingName + (msend-mail-and-exit)
+***    ========    /From The Browser/
+***    ======== bxms-web-url-MailingName       -- BROWSER ORIGINATION -- (Send Link)
+***    ======== bxms-web-mailto-MailingName    -- BROWSER ORIGINATION -- (Click On a mailto: URL)
+***    ========    /From BBDB Mode/
+***    ======== x bxms-compose-MailingName     -- BBDB ORIGINATION  -- Interactive on One
+***    ======== * x bxms-compose-MailingName   -- BBDB ORIGINATION  -- Interactive on Each one-by-one
+***    ======== x bxms-batch-MailingName       -- BBDB ORIGINATION  -- Batch on One
+***    ======== * x bxms-batch-MailingName     -- BBDB ORIGINATION  -- Batch on Each one-by-one
+***    ======== x bxms-toall-MailingName       -- BBDB ORIGINATION  -- Interactive on ALL
+***    ========    /With Selected BBDB/
+***    ======== bxms-bbdb-compose-MailingName  -- BBDB USAGE        -- (1) Interactive on One -- (4) Interactive on Each one-by-one
+***    ======== bxms-bbdb-batch-MailingName    -- BBDB USAGE        -- (1) Batch on One -- (4) Batch on Each one-by-one
+***    ======== bxms-bbdb-toall-MailingName    -- BBDB USAGE        -- Interactive on ALL in To:
+*** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "ICMs  Mailings Invocation" :anchor "" :extraInfo "Regular Activity"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *ICMs  Mailings Invocation:* |]]  Regular Activity  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Run icm's compose and originate
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailings Header Editing (In Mailing-Buffer)" :anchor "" :extraInfo "Regular Activity"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailings Header Editing (In Mailing-Buffer):* |]]  Regular Activity  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Edit as you would in message-mode.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailings Content Editing (From Mailing-Buffer)" :anchor "" :extraInfo "Regular Activity"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailings Content Editing (From Mailing-Buffer):* |]]  Regular Activity  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing-Buffer and Mailing-Ext-Src are two-way linked.
+** From Mailing-Buffer goto- Mailing-Ext-Src.
+** In Mailing-Ext-Src do your editing.
+** When done editing. Invoke build+release+mailBuf
+** This takes you back to updated Mailing-Buffer + Mail-Preview buffer underneath.
+** Review the edited result and re-edit if needed.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailings Sending (From Mailing-Buffer)" :anchor "" :extraInfo "Regular Activity"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailings Sending (From Mailing-Buffer):* |]]  Regular Activity  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** When satisfied with your edits, send from mailing buffer as an ordinary  mail-buffer.
+** A log of that mailing will be made.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Mailing Sending Workflow -- ~Recipients Selection: bbdb, names and forms~ --" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Mailing Sending Workflow -- ~Recipients Selection: bbdb, names and forms~ --_: |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Sending involves selection of mailing, selection of recipients and
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailing Recipients Selection" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailing Recipients Selection:* |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** NOTYET
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Mailing Distribution Workflow -- ~dist and names~ --" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Mailing Distribution Workflow -- ~dist and names~ --_: |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** This section focusses on mailings distribution, not editable mailings.
+** Mailing distribution involves subjecting a Mailing-File to a list of Names in BBDB.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailing Composition IPCMs and Bases" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailing Composition IPCMs and Bases:* |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "bueMailingSetup.sh" :comment "Create base mailings directory" :afterComment "and files"
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i examples")][bueMailingSetup.sh]]  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i describe")][describe]] *|*  =Create base mailings directory= *|*  and files [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "seedNameDistProc.sh" :comment "~/BUE/names" :afterComment ""
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "seedNameDistProc.sh -i examples")][seedNameDistProc.sh]]  [[elisp:(lsip-local-run-command "seedNameDistProc.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "seedNameDistProc.sh -i describe")][describe]] *|*  =~/BUE/names= *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "seedMailingProc.sh" :comment "~/BUE/mailings" :afterComment ""
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "seedMailingProc.sh -i examples")][seedMailingProc.sh]]  [[elisp:(lsip-local-run-command "seedMailingProc.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "seedMailingProc.sh -i describe")][describe]] *|*  =~/BUE/mailings= *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailings Activities And Log Of Mailings" :anchor "" :extraInfo "(How To)"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailings Activities And Log Of Mailings:* |]]  (How To)  [[elisp:(org-shifttab)][<)]] E|
+####+END
+**     ============
+**  [[elisp:(org-cycle)][| ]]  New Mailing  ::  How do I create a new Mailing?   [[elisp:(org-cycle)][| ]]
+***   [[elisp:(org-cycle)][| ]]   1) Choose (and Create) the right Base Directory For The Mailing   [[elisp:(org-cycle)][| ]]
+       mkdir -p ~/BUE/mailings/mohsenPersonal/greetings/someEvent
+
+***   [[elisp:(org-cycle)][| ]]   2) Go To That Base 
+       [[elisp:(lsip-local-run-command "echo pushd ~/BUE/mailings/SPECIFY")][echo pushd ~/BUE/mailings/SPECIFY]]
+
+***   [[elisp:(org-cycle)][| ]]   3) Run bystarMailingStart.sh and Choose What Type Of Content You Want
+****      bxtStartMailing.sh -v -n showRun -i startObjectGen text path 
+****      bxtStartMailing.sh -i startObjectGen htmlLcnt path      -- .../mailing/lcnt
+****      bxtStartMailing.sh -i startObjectGen lcntHtml path      -- .../mailing/lcnt
+****      bxtStartMailing.sh -i startObjectGen htmlPubLcnt path
+***   [[elisp:(org-cycle)][| ]]   4) Fill-in The fileVariables
+       [[elisp:(lsip-local-run-command "mailingProc.sh -i configParams")][mailingProc.sh -i configParams]]   # Does Not Work 
+
+***   [[elisp:(org-cycle)][| ]]   5) Edit content.mail   [[elisp:(lsip-local-run-command "echo ./content.mail")][echo ./content.mail]]
+***   [[elisp:(org-cycle)][| ]]   6) Run objectUpdate Create mailBody.html By running 
+       [[elisp:(lsip-local-run-command "mailingProc.sh -i objectUpdate")][mailingProc.sh -i objectUpdate]]
+
+***   [[elisp:(org-cycle)][| ]]   7) Test Out The Distribution
+
+***   [[elisp:(org-cycle)][| ]]   8) Decide if this is to be Auto Loadable
+       [[elisp:(lsip-local-run-command "cat excludeFromAutoload")][cat excludeFromAutoload]]                  # Current Setting
+       [[elisp:(lsip-local-run-command "echo false  > excludeFromAutoload")][echo false  > excludeFromAutoload]]        # DO Autoload
+       [[elisp:(lsip-local-run-command "echo true  > excludeFromAutoload")][echo true  > excludeFromAutoload]]         # DO NOT Autoload
+
+***   [[elisp:(org-cycle)][| ]]   9) Clean Up The Mailing
+
+***   [[elisp:(org-cycle)][| ]]  10) Subject The Mailing To Version Control
+       [[elisp:(lsip-local-run-command "echo cvs update")][echo cvs update]]                 # Current Setting
+
+**  [[elisp:(org-cycle)][| ]]  Mailing Logs ::  Where Are The Mailing Logs And How Do I Process Them?  [[elisp:(org-cycle)][| ]]
+***    1) Mailing Logs are at:  [[file:~/BUE/mailings/logs/mailings.sent]]
+
+***    2) You Process Mailing Logs with  [[file:~/BUE/mailings/logs/fileProc.sh]]
+****       [[elisp:(lsip-local-run-command "pushd ~/BUE/mailings/logs")][pushd ~/BUE/mailings/logs]]
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Old and Historic Text" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Old and Historic Text_: |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** These need to be absorbed in due course.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailing Composition IPCMs and Bases" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailing Composition IPCMs and Bases:* |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "bueMailingSetup.sh" :comment "Create base mailings directory" :afterComment "and files"
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i examples")][bueMailingSetup.sh]]  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i describe")][describe]] *|*  =Create base mailings directory= *|*  and files [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "seedMailingProc.sh" :comment "~/BUE/mailings" :afterComment ""
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "seedMailingProc.sh -i examples")][seedMailingProc.sh]]  [[elisp:(lsip-local-run-command "seedMailingProc.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "seedMailingProc.sh -i describe")][describe]] *|*  =~/BUE/mailings= *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailings Creation" :anchor "" :extraInfo "One time, pre-activity"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailings Creation:* |]]  One time, pre-activity  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** Mailing Creation:
+*** +
+*** Go in ~/bpos/usageEnvs/fullUse/mailings/~
+*** Create or choose the right
+***  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i examples")][bueMailingSetup.sh]]
+*** Edit the mailing headers
+*** Generate html/pdf results
+*** Run dblock in content.mail
+*** Visit content.mail
+*** Run mcdt:setup-and-compose/with-curBuffer
+*** Send out a test message
+*** -
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Pre-2000 - OBSOLETED -- BBDB Mailings Activities" :anchor "" :extraInfo "(How Tos)"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Pre-2000 - OBSOLETED -- BBDB Mailings Activities:* |]]  (How Tos)  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** 
+** How do I create a one time generic mailing  Mailing (no attachment - standalone)?
+
+    -) cd /usr/devenv/bbdbNames/MailingsKeep/this/Generic/standalone/
+
+    -) Edit Generic-note.preface
+
+    -) Edit Generic-note.subject
+
+    -) Set iv_contentDistTag="JUG" 
+       Where JUG is something that 
+       represents this distribution.
+
+    -) bbdbMailings.sh -v -n showRun -p loadItemsFile=this -s this_Generic_note -a distKeepGen
+
+    -) Set iv_distGenNames="distBigLeap" 
+       whish is a the desired distribution.
+
+    -) bbdbMailings.sh -v -n showRun -p loadItemsFile=this -s this_Generic_note -a distPrep
+
+    -) Bring up the target distribution in BBDB
+
+    -) In BBDB buffer, on the item "x" with msend-this-Generic-note
+
+    -) Pass it through CVS
+
+** How do I create a new Mailing (no attachment - standalone)?
+
+    1) Edit bbdbContentItems.xxx   in /usr/devenv/bbdbNames/bin
+
+    2) bbdbMailings.sh ... -a mailingsKeepGen
+   [[elisp:(lsip-local-run-command "pushd /usr/devenv/bbdbNames/bin")][pushd /usr/devenv/bbdbNames/bin]]
+   [[elisp:(lsip-local-run-command "echo bbdbMailings.sh -v -n showRun -p loadItemsFile=iran -s iran_bystar_ecosystemRevCollaborate -a mailingsKeepGen")][bbdbMailings.sh -v -n showRun -p loadItemsFile=iran -s iran_bystar_ecosystemRevCollaborate -a mailingsKeepGen]]
+
+    3) Go in mailingsKeep and create .preface .from files
+
+    4) bbdbMailings.sh ... -a mailingsGen
+   [[elisp:(lsip-local-run-command "pushd /usr/devenv/bbdbNames/bin")][pushd /usr/devenv/bbdbNames/bin]]
+   [[elisp:(lsip-local-run-command "echo bbdbMailings.sh -v -n showRun -p loadItemsFile=iran -s iran_bystar_ecosystemRevCollaborate -a mailingsGen")][bbdbMailings.sh -v -n showRun -p loadItemsFile=iran -s iran_bystar_ecosystemRevCollaborate -a mailingsGen]]
+
+    5) M-x [[elisp:(load-file "/usr/devenv/bbdbNames/MailingsGened/msend-contents-load.el")][load-file bbdb-contents-load.el]]
+
+
+    6) In BBDB buffer, on the item "x" with msend-xxx
+
+    7) Tag the item files the desired distribution
+    
+    8) Run the distribution
+
+    9) Pass it through CVS
+
+** How do I create a new Mailing with documents?
+
+    1) Edit ./bbdbContentItems.xxx to add new
+       item.  The major important inputs for
+       including documents in your mailings are:
+
+       iv_contentType="doc"
+       iv_content_containerList=("validContainerName") -- just for example use
+       iv_content_pkgRef=("validPkgName") -- just for example use
+
+       The iv_content_containerList indicates which
+       container list will be loaded during bbdbMailings.sh
+       execution and the iv_content_pkgRef indicates a
+       particular item from that container.
+
+    2) Edit the indicated container list (if one exist)
+       or create a new file for it.  The place for
+       this container is in /opt/public/osmt/siteControl/nedaPlus
+       For example: edit mmaCntntPkgItems.validContainerName and
+       add these 2 entries:
+         - item_cntntPkg_validPkgName
+	 - item_access_validPkgName
+       (see example from other mmaCntntPkgItems file)
+
+    3) Run mmaCntntPkgs.sh -p pkgFamily=validContainerName -s cntntPkg_validPkgName -a obtain
+
+    4-) bbdbMailings.sh ... -a mailingsKeepGen
+        Then go into the appropriate directory and 
+        add relevant preface.
+
+    4) bbdbMailings.sh ... -a mailingsGen
+
+    5) M-x load-file bbdb-contents-load.el
+
+    6) In BBDB buffer, on the item "x" with msend-xxx
+
+    7) Tag the item files the desired distribution
+    
+    8) Run the distribution
+
+    9) Pass it through CVS
+
+** How do I add a new preface for same doc Mailing?
+
+     Just reproduce the item file for the document and name it something else.
+
+** How  do ditributions work?
+
+*** DISTRIBUTION CREATION
+
+       distKeepGen
+          no args, create a DistKeep directory (if it doesn't exist)
+	  and then create this hierarchy directory (if it doesn't exist)
+	  iv_contentCategory/iv_contentName/iv_contentDistTag.
+	  In each of these directory, it look for 
+	  special-exclude.names and special-include.names files.
+	  If they don't exist, it will touch
+	  special-exclude.names and special-include.names.
+
+   [[elisp:(lsip-local-run-command "pushd /usr/devenv/bbdbNames/bin")][pushd /usr/devenv/bbdbNames/bin]]
+   [[elisp:(lsip-local-run-command "echo bbdbMailings.sh -v -n showRun -p loadItemsFile=iran -s iran_bystar_persianInputMethods -a distKeepGen")][bbdbMailings.sh -v -n showRun -p loadItemsFile=iran -s iran_bystar_persianInputMethods -a distKeepGen]]
+
+
+DISTRIBUTION PROCESSING
+=======================
+
+       distPrep  -- distPrepWith vis_distHereNames 
+          Prepares a particular mailing for distribution.
+	  It does the following sequence:
+	    1) distNamesGen
+	    2) logsToNames
+	    3) distNextBatch
+	       
+       distNamesGen
+          Runs iv_namesGenCommand (eg nedaNamesGen.sh)
+          no args, based on iv_distGenNames.  This option will create
+	  a list of names of "Who-to-Send-to".  It creates
+	  <iv_distGenNames>-include.names and <iv_distGenNames>-exclude.names
+	  in Distributions/<iv_contentCategory>/<iv_contentName>/<iv_contentDistTag>.
+
+       logsToNames
+          no args, discovers who has already received the contents
+	  so that nobody receives the same content twice.
+	  The log is in the Logs directory
+
+       distNextBatch
+          no args, creates a list of names of "Who-to-Send-to-Next".
+	  This option basically compare the <iv_distGenNames>-include.names
+	  (which are generated by distNamesGen option) with the
+	  logs file and the  specials-include.names.
+          It creates nextBatch-dist.names.
+	  The output then can be used to start the next distribution.
+
+** How do I setup a Custom Distribution?
+
+    1) Make sure that in the itemFile 
+           iv_distGenNames=""
+
+    2) Run -a distKeepGen
+    
+    3) Edit the specials-include.names
+
+** How do I setup a Named Distribution?
+
+    1) Make sure that in the itemFile 
+           iv_distGenNames="aLegitDistName"
+	   see nedaNamesGen for the list
+              nedaNamesGen.sh -i help
+
+** How do I execute a MailingsDistribution?
+
+    1) bbdbMailings.sh ....
+
+      bbdbMailings.sh  ${extraInfo} -p loadItemsFile=${oneItem} -s ${oneSubject} -a distPrep
+
+
+    2) Visit nextBatch-dist.names
+
+    3) M-x bbdb-names-input 
+
+    4) In the bbdb buffer
+         *
+	 x
+         mbatch-xxx-document
+
+** How do I add a person\'s name for future distribution?
+
+    1) If the person is not in bbdb, add the person to bbdb.
+
+    2) If the person is in bbdb, verify that the person is not 
+       already subject to distribution. Grep the guy\'s name in
+       the Logs directory.
+
+    3) Given the guy\'s bbdb entry, 
+       x 
+       names-new-append
+       (default is newFolks.names)
+
+    4) Send out 
+       x
+       msend-nedaOffice-AddedToList-Leap
+
+       Customize as needed.
+       
+    5) Execute initial catch up distributions.
+
+** How do I add new names to a distribution which is in progress?
+
+    0) Create a freshFolks.names
+
+    1) Run -a distGen  newNames
+
+    2) Visit nextBatch
+
+    3) M-x bbdb-group-input
+
+    4) M-x mbatch-xxx-document
+
+    5) When caught up, include newNames in the right places.
+
+** How do I clean-up after bounces in distributions?
+
+    - Edit the bbdb entry and remove the bad email address.
+
+    - Add that name to /usr/devenv/bbdbNames/Names/excludeBounce.names
+####+BEGIN: blee:bxPanel:separator :outLevel 1
+* /[[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]] [[elisp:(delete-other-windows)][|1]]/
+####+END
+####+BEGIN: blee:bxPanel:evolution
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:evolution)][dbf]]
+*                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(org-cycle)][| *Maintenance:* | ]]  [[elisp:(blee:menu-sel:agenda:popupMenu)][||Agenda]]  <<Evolution>>  [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "Notes, Ideas, Tasks, Agenda" :anchor "Tasks"
+** [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| /Notes, Ideas, Tasks, Agenda:/ |]] <<Tasks>>   [[elisp:(org-shifttab)][<)]] E|
+####+END
+*** TODO Some Idea
+####+BEGIN: blee:bxPanel:evolutionMaintainers
+** [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:evolutionMaintainers)][dbf]]
+** [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(org-cycle)][| /Bug Reports, Development Team:/ | ]]  <<Maintainers>>
+***  Problem Report                       ::   [[elisp:(find-file "")][Send debbug Email]]
+***  Maintainers                          ::   [[bbdb:Mohsen.*Banan]]  :: http://mohsen.1.banan.byname.net  E|
+####+END
+* B|
+####+BEGIN: blee:bxPanel:footerPanelControls
+* [[elisp:(show-all)][(>]] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+* /Footer Controls/ ::  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]  [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:footerOrgParams
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerOrgParams)][dbf]]
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(org-cycle)][| *= Org-Mode Local Params: =* | ]]
+#+STARTUP: overview
+#+STARTUP: lognotestate
+#+STARTUP: inlineimages
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+#+CATEGORY: N:mtdt-usage
+####+END
+####+BEGIN: blee:bxPanel:footerEmacsParams :primMode "org-mode"
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerEmacsParams)][dbf]]
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(org-cycle)][| *= Emacs Local Params: =* | ]]
+# Local Variables:
+# eval: (setq-local ~selectedSubject "noSubject")
+# eval: (setq-local ~primaryMajorMode 'org-mode)
+# eval: (setq-local ~blee:panelUpdater nil)
+# eval: (setq-local ~blee:dblockEnabler nil)
+# eval: (setq-local ~blee:dblockController "interactive")
+# eval: (img-link-overlays)
+# eval: (set-fill-column 115)
+# eval: (blee:fill-column-indicator/enable)
+# eval: (bx:load-file:ifOneExists "./panelActions.el")
+# End:
+
+####+END

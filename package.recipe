@@ -1,0 +1,4 @@
+(mtdt-mailing
+  :fetcher github
+  :repo "bx-blee/mtdt-mailing"
+  :files ("*.el"))

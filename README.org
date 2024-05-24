@@ -1,0 +1,62 @@
+#+title: MTDT: Mail Templating, Distribution and Tracking Emacs Package
+
+
+MTDT is part of Blee. Blee (ByStar Libre-Halaal Emacs Environment) serves as the usage environment of
+BISOS (ByStar Internet Services OS). BISOS forms the foundation
+of the "Libre-Halaal ByStar Digital Ecosystem." ByStar is rooted in the model of proper governance of
+polyexistentials which rejects the Western Intelectual Propoerty Rights (IPR) regime.
+For a comprehensive description, please refer to the book 'The Nature of Polyexistentials.'
+
+MTDT is developed in elisp with COMEEGA (Collaborative Org-Mode Enhanced Emacs Generalized Authorship).
+Please follow Blee-COMEEGA  conventions when editing MTDT elisp files.
+
+MTDT augments the Emacs email environment (Gnus) by providing templates for mailings and distributions. You can
+think of MTDT as a Libre-Halaal Convivial equivalent of Constant Contact for Emacs.
+MTDT allows you to create *Mailing Tempaltes* with content in 1) Plain Text, 2) Org-Msg, 3) LaTeX and 4) Plain Html.
+The Mailing Templates can then be used to =Send= or =Distribute=  to =Recipients=.
+=Recipients= can be derived from =Names= in address books such as =BBDB3=.
+
+Documentation of MTDT is in the form of a series of related panels. Primary MTDT Blee-Panel is
+[[file:./panels/mtdt/_nodeBase_/fullUsagePanel-en.org]].
+With some limitations, MTDT can be used an a stand alone Emacs package.
+
+Key components of BISOS and Blee that interact with MTDT include:
+
+- MARMEE -- Multi-Account Resident Mail Exchange Environment
+- LCNT -- ByStar Libre Content production, publication
+- Mailings, Names, Dist facilities of BISOS
+
+A graphical overview of the MTDT model is provided below.
+
+# #+html: <p align="center"><img src="images/mtdtModel.jpg" /></p>.
+#+html: <p align="center"><img src="images/mtdtModel.jpg" /></p>
+
+#+CAPTION: MTDT Model C-c C-x C-v (org-toggle-inline-images)
+#+NAME:   fig:images/mtdtModel.jpg]]
+#+ATTR_HTML: :width 1100px
+[[./images/mtdtModel.jpg]]
+
+
+# ###+BEGIN: blee:bxPanel:footerOrgParams
+#+STARTUP: overview
+#+STARTUP: lognotestate
+#+STARTUP: inlineimages
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+#+CATEGORY: N:mtdt-conceptAndDesign
+# ###+END
+# ###+BEGIN: blee:bxPanel:footerEmacsParams :primMode "org-mode"
+# Local Variables:
+# eval: (setq-local toc-org-max-depth 4)
+# eval: (setq-local ~selectedSubject "noSubject")
+# eval: (setq-local ~primaryMajorMode 'org-mode)
+# eval: (setq-local ~blee:panelUpdater nil)
+# eval: (setq-local ~blee:dblockEnabler nil)
+# eval: (setq-local ~blee:dblockController "interactive")
+# eval: (img-link-overlays)
+# eval: (set-fill-column 115)
+# eval: (blee:fill-column-indicator/enable)
+# eval: (bx:load-file:ifOneExists "./panelActions.el")
+# End:
+
+# ###+END

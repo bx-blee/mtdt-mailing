@@ -1,0 +1,161 @@
+* B|
+####+BEGIN: bxPanel:common/title-plus
+#+title: mailings/names
+#+roam_tags: branch
+#+roam_key: mail/mailings/names
+[[roam:mail/mailings]]
+####+END
+####+BEGIN: blee:bxPanel:topPanelControls
+*  [[elisp:(org-cycle)][|#Control|]] :: [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] [[elisp:(save-buffer)][Save]] [[elisp:(kill-buffer)][Quit]] [[elisp:(bury-buffer)][Bury]]  [[elisp:(magit)][Magit]]  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(bap:magit:bisos:current-bpo-repos/visit)][BPO-Repos-Magit]] ||
+**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]]
+**  [[elisp:(blee:menu-sel:comeega:maintenance:popupMenu)][||Maintenance]]
+**  This File :: *= /bisos/panels/blee-core/mail/mailings/names/_nodeBase_/fullUsagePanel-en.org =*
+* /file-truename:/  /bisos/git/auth/bxRepos/blee/mtdt/panels/names/_nodeBase_/fullUsagePanel-en.org
+*  [[elisp:(org-cycle)][|#Select|]]  :: (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(lsip-local-run-command-here "echo pushd dest")][echo pushd dir]] || [[elisp:(lsip-local-run-command-here "lsf")][lsf]] || [[elisp:(lsip-local-run-command-here "pwd")][pwd]] |
+**  [[elisp:(org-cycle)][|#Destinations|]] :: [[Evolution]] | [[Maintainers]]  [[elisp:(org-cycle)][| ]]
+**  #See:  [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]  E|
+####+END
+####+BEGIN: blee:bxPanel:title :panelType "=bxPanel=" :title "auto"
+* [[elisp:(show-all)][(>]] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+*   [[img-link:file:/bisos/blee/env/images/fpfByStarElipseTop-50.png][http://www.freeprotocols.org]]_ _   ~Node:: mail/mailings -- names~   [[img-link:file:/bisos/blee/env/images/fpfByStarElipseBottom-50.png][http://www.by-star.net]]
+* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:bxPanel:terseTreeNavigator :panelsList "bxPanel"
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:terseTreeNavigator)][dbf]]
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_   General Panels ::   [[img-link:file:/bisos/blee/env/images/bystarInside.jpg][http://www.by-star.net]] *|*  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] *|* [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/planning/Main")][ByStar Planning]]
+
+*                                        *━━━━━━━━━━━━━━━━━━━━━━━━*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/distributions/_nodeBase_")][ = /<distributions>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-conceptAndDesign/_nodeBase_")][ = /<mtdt-conceptAndDesign>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-devel/_nodeBase_")][ = /<mtdt-devel>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-usage/_nodeBase_")][ = /<mtdt-usage>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/names/_nodeBase_")][ = /<names>/ = ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/recipients/_nodeBase_")][ = /<recipients>/ = ]] *|*
+*   /Ancestors/  :: [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/mail/mailings/_nodeBase_")][ =mailings= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/mail/_nodeBase_")][ =mail= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/_nodeBase_")][ =blee-core= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/_nodeBase_")][ = /<panels>/ = ]] *|* [[elisp:(dired "//bisos")][ ~bisos~ ]] *|*
+*                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_                          [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :title "Overview" :anchor "Panel"
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Overview:* |]] <<Panel>>   [[elisp:(org-shifttab)][<)]] E|
+####+END
+**
+** Overview Comes Here.
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailing Composition IPCMs and Bases" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailing Composition IPCMs and Bases:* |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "bueMailingSetup.sh" :comment "Create base mailings directory" :afterComment "and files"
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i examples")][bueMailingSetup.sh]]  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "bueMailingSetup.sh -i describe")][describe]] *|*  =Create base mailings directory= *|*  and files [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "seedNameDistProc.sh" :comment "~/BUE/names" :afterComment ""
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "seedNameDistProc.sh -i examples")][seedNameDistProc.sh]]  [[elisp:(lsip-local-run-command "seedNameDistProc.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "seedNameDistProc.sh -i describe")][describe]] *|*  =~/BUE/names= *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? t :label "Sh-ICM" :icmName "seedMailingProc.sh" :comment "~/BUE/mailings" :afterComment ""
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  [[elisp:(org-cycle)][| /Sh-ICM/ |]] :: [[elisp:(lsip-local-run-command "seedMailingProc.sh -i examples")][seedMailingProc.sh]]  [[elisp:(lsip-local-run-command "seedMailingProc.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "seedMailingProc.sh -i describe")][describe]] *|*  =~/BUE/mailings= *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Names Activities" :anchor "" :extraInfo "(How To)"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Names Activities:* |]]  (How To)  [[elisp:(org-shifttab)][<)]] E|
+####+END
+**     ============
+** How do I create a new Names List?
+
+***    1) Choose (and Create) the right Base Directory For The Mailing
+       mkdir -p ~/BUE/names/examplesAndTests/
+
+***    2) Go To That Base
+       [[elisp:(lsip-local-run-command "echo pushd ~/BUE/names/SPECIFY")][echo pushd ~/BUE/namess/SPECIFY]]
+
+***    3) Run bystarNameStart.sh and Choose What Type Of Content You Want
+****      bystarMailingStart.sh -i startObjectGen namesList path
+
+***    4) Edit nameProc.sh and add  names list generators
+****      bystarMailingStart.sh -i startObjectGen namesList path
+****      distIncludeFileName ~/BUE/names/examplesAndTests/examples.names
+****      distIncludeFileName ~/BUE/names/examplesAndTests/xxx.names
+****      listNamesGlobalExcludes
+
+***    5) Run namesOutputListWith vis_examplesAndTests
+
+***    6) Run namesOutputToFilesWith
+****       $1=includeExcludeTag, $2+=listFunc
+****       Based on listFunc, create tag-include.names and tag-exclude.names
+
+***    7) ${G_myName} ${extraInfo} -i namesResultFor tag1                           # After namesOutputToFilesWith tag1 vis_examplesAndTests
+
+***    8) ${G_myName} ${extraInfo} -i namesOutputToFilesWithAndResult tag1 vis_examplesAndTests  # namesOutputToFilesWith + namesResultFor
+
+***    9) Clean Up The NamesList
+
+***    10) Subject The NamesList To Version Control
+       [[elisp:(lsip-local-run-command "echo cvs update")][echo cvs update]]                 # Current Setting
+
+** NamesList Processing -- nameProc.sh (based on seedNameDistProc.sh) Facilities
+
+***  nameProc.sh -i namesOutputListWith vis_func
+****  $1+=listFunc
+****  Based on listFunc, list out files to be included or excluded.
+
+***  nameProc.sh -i namesOutputToFilesWith
+****  $1=tag (includeExcludeTag), $2+=listFunc
+****  Based on listFunc, create tag-include.names and tag-exclude.names
+
+***  nameProc.sh -i namesResultFor
+****  $1=tag (includeExcludeTag)
+****  Assumes vis_namesOutputToFilesWith has run before and
+****  includeExcludeTag="$1" -- ${includeExcludeTag}-include.names ${includeExcludeTag}-exclude.names
+****  are in place.
+****  Combines those to produce ${includeExcludeTag}-result.names
+****  If $1=dist, then dist-sentLog.names is assumed to be in place and is used as an exclude.
+
+***  nameProc.sh -i namesOutputToFilesWithAndResult
+****  $1=tag (includeExcludeTag), $2+=listFunc
+****  namesOutputToFilesWith + namesResultFor
+####+BEGIN: blee:bxPanel:separator :outLevel 1
+* /[[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]] [[elisp:(delete-other-windows)][|1]]/
+####+END
+####+BEGIN: blee:bxPanel:evolution
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:evolution)][dbf]]
+*                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(org-cycle)][| *Maintenance:* | ]]  [[elisp:(blee:menu-sel:agenda:popupMenu)][||Agenda]]  <<Evolution>>  [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "Notes, Ideas, Tasks, Agenda" :anchor "Tasks"
+** [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| /Notes, Ideas, Tasks, Agenda:/ |]] <<Tasks>>   [[elisp:(org-shifttab)][<)]] E|
+####+END
+*** TODO Some Idea
+####+BEGIN: blee:bxPanel:evolutionMaintainers
+** [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:evolutionMaintainers)][dbf]]
+** [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(org-cycle)][| /Bug Reports, Development Team:/ | ]]  <<Maintainers>>
+***  Problem Report                       ::   [[elisp:(find-file "")][Send debbug Email]]
+***  Maintainers                          ::   [[bbdb:Mohsen.*Banan]]  :: http://mohsen.1.banan.byname.net  E|
+####+END
+* B|
+####+BEGIN: blee:bxPanel:footerPanelControls
+* [[elisp:(show-all)][(>]] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+* /Footer Controls/ ::  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]  [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:footerOrgParams
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerOrgParams)][dbf]]
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(org-cycle)][| *= Org-Mode Local Params: =* | ]]
+#+STARTUP: overview
+#+STARTUP: lognotestate
+#+STARTUP: inlineimages
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+#+CATEGORY: N:names
+
+####+END
+####+BEGIN: blee:bxPanel:footerEmacsParams :primMode "org-mode"
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerEmacsParams)][dbf]]
+* [[elisp:(show-all)][|n]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(org-cycle)][| *= Emacs Local Params: =* | ]]
+# Local Variables:
+# eval: (setq-local ~selectedSubject "noSubject")
+# eval: (setq-local ~primaryMajorMode 'org-mode)
+# eval: (setq-local ~blee:panelUpdater nil)
+# eval: (setq-local ~blee:dblockEnabler nil)
+# eval: (setq-local ~blee:dblockController "interactive")
+# eval: (img-link-overlays)
+# eval: (set-fill-column 115)
+# eval: (blee:fill-column-indicator/enable)
+# eval: (bx:load-file:ifOneExists "./panelActions.el")
+# End:
+
+####+END
