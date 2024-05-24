@@ -88,13 +88,13 @@ Module description comes here.
 ** DocStr: Adds this as a submenu to menu labeled =<menuLabel= at specified delimited =<menuDelimiter=.
 #+end_org "
 
-  ;; Determine starting value of b:mtdt:compose:fashion
-  ;;(setq  b:mtdt:compose:fashion b:mtdt:compose:fashion::basic)
-  (setq  b:mtdt:compose:fashion b:mtdt:compose:fashion::orgMsg)
+  ;; Determine starting value of b:mtdt:compose:framework
+  ;;(setq  b:mtdt:compose:framework b:mtdt:compose:framework::basic)
+  (setq  b:mtdt:compose:framework b:mtdt:compose:framework::orgMsg)
 
   (when org-msg-mode
-    (setq  b:mtdt:compose:fashion b:mtdt:compose:fashion::orgMsg))
-  (b:mtdt:compose:fashion/setup b:mtdt:compose:fashion)
+    (setq  b:mtdt:compose:framework b:mtdt:compose:framework::orgMsg))
+  (b:mtdt:compose:framework/setup b:mtdt:compose:framework)
 
   (easy-menu-add-item
    <menuLabel
@@ -332,55 +332,56 @@ Module description comes here.
       b:mtdt:menu:mailing:main
       nil
       "DocStr of this menu --"
-      `(,(format (s-lex-format "MTDT Mailing Menu -- Compose Framework:: ${b:mtdt:compose:fashion}"))
+      `(,(format (s-lex-format "MTDT Mailing Menu -- Compose Framework:: ${b:mtdt:compose:framework}"))
 	:help "MTDT (Mail Templating Distribution and Tracking) -- Mailing"
 	:visible ,<visible
 	:active ,<active
 	,(s-- 2)
-	[
-	,(format (s-lex-format "Describe Compose Framework:: ${b:mtdt:compose:fashion}"))
-	  (describe-variable 'b:mtdt:compose:fashion)
-	  :help "Describe current value of b:mtdt:compose:fashion"
-	  :active t
-	  :visible t
-	  ]
 	,(s-- 3)
-	 [
-	  "Basic"
-	  (b:mtdt:compose:fashion/setup b:mtdt:compose:fashion::basic)
-	  :help "Select basic composition fashion."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq  b:mtdt:compose:fashion b:mtdt:compose:fashion::basic)
-	  ]
-	 [
-	  "OrgMsg"
-	  (b:mtdt:compose:fashion/setup b:mtdt:compose:fashion::orgMsg)
-	  :help "Select orgMsg composition fashion."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq b:mtdt:compose:fashion b:mtdt:compose:fashion::orgMsg)
-	  ]
-	 [
-	  "LaTeX"
-	  (b:mtdt:compose:fashion/setup  b:mtdt:compose:fashion::latex)
-	  :help "Select latex composition fashion."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq b:mtdt:compose:fashion b:mtdt:compose:fashion::latex)
-	  ]
-	 ,(s-- 3)
-         [
-	,(format (s-lex-format "Describe Compose Framework:: ${b:mtdt:compose:fashion}"))
-	  (describe-variable 'b:mtdt:compose:fashion)
-	  :help "Describe current value of b:mtdt:compose:fashion"
+	[
+	,(format (s-lex-format "Describe Compose Framework:: ${b:mtdt:compose:framework}"))
+	  (describe-variable 'b:mtdt:compose:framework)
+	  :help "Describe current value of b:mtdt:compose:framework"
 	  :active t
 	  :visible t
 	  ]
 	,(s-- 4)
+	 [
+	  "Basic"
+	  (b:mtdt:compose:framework/setup b:mtdt:compose:framework::basic)
+	  :help "Select basic composition fashion."
+	  :active t
+	  :visible t
+	  :style radio
+	  :selected ,(eq  b:mtdt:compose:framework b:mtdt:compose:framework::basic)
+	  ]
+	 [
+	  "OrgMsg"
+	  (b:mtdt:compose:framework/setup b:mtdt:compose:framework::orgMsg)
+	  :help "Select orgMsg composition fashion."
+	  :active t
+	  :visible t
+	  :style radio
+	  :selected ,(eq b:mtdt:compose:framework b:mtdt:compose:framework::orgMsg)
+	  ]
+	 [
+	  "LaTeX"
+	  (b:mtdt:compose:framework/setup  b:mtdt:compose:framework::latex)
+	  :help "Select latex composition fashion."
+	  :active t
+	  :visible t
+	  :style radio
+	  :selected ,(eq b:mtdt:compose:framework b:mtdt:compose:framework::latex)
+	  ]
+	 ,(s-- 5)
+         [
+	,(format (s-lex-format "Describe Compose Framework:: ${b:mtdt:compose:framework}"))
+	  (describe-variable 'b:mtdt:compose:framework)
+	  :help "Describe current value of b:mtdt:compose:framework"
+	  :active t
+	  :visible t
+	  ]
+	,(s-- 6)
 	 [
 	  "Compose Mode -- NOTYET"
 	  (b:mtdt:send:extent|set b:mtdt:send:extent::promptSend)
@@ -399,8 +400,6 @@ Module description comes here.
 	  :style radio
 	  :selected ,(eq b:mtdt:send:extent b:mtdt:send:extent::doSend)
 	  ]
-	 ,(s-- 5)
-	 ,(s-- 6)
 	 ,(s-- 7)
 	 ,(s-- 8)
 	 ,(s-- 9)
@@ -413,24 +412,20 @@ Module description comes here.
                         (s-- 2))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
-                        (b:mtdt:menu:mailingItem:define|setup-withCurBuffer)
-                        (s-- 5))
-
-     (easy-menu-add-item b:mtdt:menu:mailing:main nil
-                        (b:mtdt:menu:mailingItem:define|setup-withCurBuffer)
-                        (s-- 6))
+                       (b:mtdt:menu:mailing:define|selMailingSelect)
+                       (s-- 3))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
-                       (b:mtdt:menu:mailing:define|selMailingSelect)
-                       (s-- 7))
+                        (b:mtdt:menu:mailingItem:define|setup-withCurBuffer)
+                        (s-- 8))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
                         (b:mtdt:menuItem:define|selMailingCompose)
-                        (s-- 8))
+                        (s-- 9))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
                         (b:mtdt:menuItem:define|selMailingOriginate)
-                        (s-- 8))
+                        (s-- 10))
 
     (easy-menu-add-item
      b:mtdt:menu:mailing:main
@@ -453,7 +448,7 @@ Module description comes here.
 " orgCmntEnd)
 
 ;;;#+BEGIN: b:elisp:file/provide :modName nil
-(provide 'b:mtdt:menu-mailing)
+(provide 'b:mtdt:menu:mailing)
 ;;;#+END:
 
 ;;;#+BEGIN: b:prog:file/endOfFile :extraParams nil

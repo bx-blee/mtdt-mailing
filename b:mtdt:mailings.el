@@ -75,15 +75,15 @@ Module description comes here.
   )
 
 ;;;
-;;; NOTYET, b:mtdt:compose:fashion should become b:mtdt:compose:framework
+;;; NOTYET, b:mtdt:compose:framework should become b:mtdt:compose:frmwrk
 ;;;
 
-(defconst b:mtdt:compose:fashion::basic "Basic" "Basic Plain Text Mail Composition.")
-(defconst b:mtdt:compose:fashion::orgMsg "OrgMsg" "OrgMsg Mail Composition.")
-(defconst b:mtdt:compose:fashion::latex "LaTeX" "LaTeX Mail Composition.")
+(defconst b:mtdt:compose:framework::basic "Basic" "Basic Plain Text Mail Composition.")
+(defconst b:mtdt:compose:framework::orgMsg "OrgMsg" "OrgMsg Mail Composition.")
+(defconst b:mtdt:compose:framework::latex "LaTeX" "LaTeX Mail Composition.")
 
-(defvar b:mtdt:compose:fashion
-  b:mtdt:compose:fashion::orgMsg
+(defvar b:mtdt:compose:framework
+  b:mtdt:compose:framework::orgMsg
   "Selected and Effective compose fashion.")
 
 (defvar b:mtdt:reply:templates:base
@@ -253,19 +253,19 @@ Return 'Nu of Records=' if multiple records are found for =<nameStr=.
 ;;; Code:
 
 
-(defun b:mtdt:compose:fashion/setup (<fashion)
+(defun b:mtdt:compose:framework/setup (<fashion)
   "Based on <fashion, set things up for composition."
   (cond
-   ((eq <fashion  b:mtdt:compose:fashion::basic)
-    (setq b:mtdt:compose:fashion <fashion)
+   ((eq <fashion  b:mtdt:compose:framework::basic)
+    (setq b:mtdt:compose:framework <fashion)
     (when org-msg-mode
       (org-msg-mode -1)))
-   ((eq <fashion  b:mtdt:compose:fashion::orgMsg)
-    (setq b:mtdt:compose:fashion <fashion)
+   ((eq <fashion  b:mtdt:compose:framework::orgMsg)
+    (setq b:mtdt:compose:framework <fashion)
     (when (not org-msg-mode)
       (org-msg-mode)))
-   ((eq <fashion  b:mtdt:compose:fashion::latex)
-    (setq b:mtdt:compose:fashion <fashion)
+   ((eq <fashion  b:mtdt:compose:framework::latex)
+    (setq b:mtdt:compose:framework <fashion)
     (when org-msg-mode
       (org-msg-mode -1)))
    (t
