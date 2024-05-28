@@ -175,6 +175,10 @@ The primary abstractions are:
 - Mailing-Derived-Commands -- defmacro generated with "X-Mailing-Name: mailingName" as some of:
 All derived commands start as "mtdt:d"
 
+New Design::  mtdt:d:m/mailaingName   --- Points to mailingFile
+New Design::  mtdt:d:t/templateName   --- Points to template mailingFile
+New Design::  mtdt:d:g/mailaingName   --- Points to gnus mailingFile
+
   1) mtdt:d:compose/mailingName   -- Creates an unsent buffer for content editing with perhaps ephemera extSrc
   2) mtdt:d:originate/mailingName -- Creates an unsent buffer for header editing without ephemera extSrc
   3) mtdt:d:redraft/mailingName    -- subjetc to ctl u edits the current "unsent mail"

@@ -157,6 +157,77 @@ and side-effects are documented here
 #+END_SRC
 " orgCmntEnd)
 
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:email:header:buf|get" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email:header:buf|get>>  --   [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:email:header:buf|get (
+;;;#+END:
+                               <headerName
+                               <mailBuffer
+                               )
+   " #+begin_org
+** DocStr: RETURNS Specified Header as a string.
+#+end_org "
+   (let* (
+          ($inHere (b:log|entry (b:func$entry)))
+          ($oldBuf (current-buffer))
+          ($result nil)
+          )
+     (set-buffer <mailBuffer)
+     (goto-char (point-min))
+     (setq $result (mail-header <headerName (mail-header-extract-no-properties)))
+     (switch-to-buffer $oldBuf)
+     $result
+   ))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:email:header:buf|get 'x-mailingname (save-current-buffer (find-file (symbol-name './examples/mailings/rtl-example.msgOrg))))
+#+END_SRC
+
+#+RESULTS:
+: com.example@first.last-fa-org
+
+" orgCmntEnd)
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:email|latest-unsent-mail-buf" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email|latest-unsent-mail-buf>>  --   [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:email|latest-unsent-mail-buf (
+;;;#+END:
+                                       )
+   " #+begin_org
+** DocStr: Return most recently created unsent mail buffer.
+#+end_org "
+   (let* (
+          ($inHere (b:log|entry (b:func$entry)))
+          ($found nil)
+          )
+     (loop-for-each $each (buffer-list)
+       ;; (message (buffer-name each))
+       (when (s-contains? "unsent mail" (buffer-name $each))
+         (setq $found $each)
+         (loop-break)))
+    $found))
+
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:email|latest-unsent-mail-buf)
+#+END_SRC
+
+#+RESULTS:
+: #<buffer *unsent mail*>
+
+" orgCmntEnd)
+
+
+
 
 ;;;#+BEGIN: b:elisp:file/provide :modName nil
 (provide 'b:email)
