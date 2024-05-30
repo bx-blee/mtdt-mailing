@@ -67,10 +67,10 @@ Module description comes here.
 " orgCmntEnd)
 ;;;#+END:
 
-(defgroup b:b:mtdt:gnus nil
+(defgroup b:mtdt:gnus nil
   "Blee Mailings Library. Used by b:b:mtdt:distr."
   :group 'blee
-  :prefix "b:b:mtdt:mailings:"
+  :prefix "b:mtdt:mailings:"
   :link '(file-link "/bisos/panels/blee-core/mail/_nodeBase_/fullUsagePanel-en.org")
   )
 
@@ -79,6 +79,103 @@ Module description comes here.
 (defvar b:mtdt:gnus:mailing:selected
   nil
   "Selected Mailing.")
+
+
+(defun b:mtdt:gnus:reply|ephemeraSetup ()
+  "Triggered when replying with Gnus, after the article has been setup"
+  (message "b:mtdt:gnus:reply|ephemeraSetup was triggered, likely from gnus-message-setup-hook")
+  (let* (
+	 ($point)
+         ($ephemeraMailingFilePath:ltr nil)
+         ($ephemeraMailingFilePath:rtl nil)
+	 )
+    (setq $point (search-forward "--citation follows this line (read-only)--" nil t))
+    (when $point
+      (forward-line -1)
+      (insert "\n")
+      (insert "\n#+BEGIN: bx:b:mtdt:content/actions")
+      (insert "\n#+END:")
+      (insert "\n")
+
+      (setq $ephemeraMailingFilePath:ltr
+	    (b:mtdt:compose:ephemera|copyToBase
+             b:mtdt:reply:templates:leftToRight
+             "."))
+
+      (setq $ephemeraMailingFilePath:rtl
+	    (b:mtdt:compose:ephemera|copyToBase
+             b:mtdt:reply:templates:rightToLeft
+             "."))
+
+      (save-excursion
+        (message-carefully-insert-headers (list (cons 'X-tmp-mailingPath-ltr $ephemeraMailingFilePath:ltr)))
+        (message-carefully-insert-headers (list (cons 'X-tmp-mailingPath-rtl $ephemeraMailingFilePath:rtl)))
+        (message-sort-headers)
+        )
+
+      (org-dblock-update-buffer-bx)
+      )
+
+    $point
+    ))
+
+
+;;;(add-hook 'message-setup-hook 'b:mtdt:gnus:reply|ephemeraSetup)
+;;;(remove-hook 'message-setup-hook 'b:mtdt:gnus:reply|ephemeraSetup)
+
+(add-hook 'gnus-message-setup-hook 'b:mtdt:gnus:reply|ephemeraSetup 91)
+
+;;;
+;;; (b:mtdt:compose-mail/basic)
+;;;
+(defun b:mtdt:compose-mail/basic ()
+  "When org-msg mode is active, invoke compose-mail without it."
+  (let* (
+	 ($gnus-message-setup-hook gnus-message-setup-hook)
+	 )
+    ;;;
+
+    (when org-msg-mode
+      (message (s-lex-format "disabling orgMsg:: org-msg-mode was: ${org-msg-mode}"))
+      (message (s-lex-format "before:: gnus-message-setup-hook was: ${gnus-message-setup-hook}"))
+      (org-msg-mode -1)
+      )
+    (message (s-lex-format "gnus-message-setup-hook is: ${gnus-message-setup-hook}"))
+    (compose-mail)
+    ;;(setq gnus-message-setup-hook $gnus-message-setup-hook)
+    ))
+
+;;;
+;;; (b:mtdt:compose-mail/orgMsg)
+;;;
+(defun b:mtdt:compose-mail/orgMsg ()
+  "When org-msg mode is active, invoke compose-mail without it."
+  (let* (
+	 ($gnus-message-setup-hook gnus-message-setup-hook)
+	 )
+    ;;; (message (s-lex-format "mailingParams: ${$mailingParams} extSrcBase ${<extSrcBase} $composeFwrk=${$composeFwrk}"))
+
+    (when (not org-msg-mode)
+      (message (s-lex-format "enabling orgMsg:: org-msg-mode was: ${org-msg-mode}"))
+      (message (s-lex-format "before:: gnus-message-setup-hook was: ${gnus-message-setup-hook}"))
+      (org-msg-mode)
+      )
+    (message (s-lex-format "gnus-message-setup-hook is: ${gnus-message-setup-hook}"))
+    (compose-mail)
+    ;;(setq gnus-message-setup-hook $gnus-message-setup-hook)
+    ))
+
+;;;
+;;; (b:mtdt:compose-mail/selected)
+;;;
+(defun b:mtdt:compose-mail/selected ()
+  "When org-msg mode is active, invoke compose-mail without it."
+  (let* (
+	 ($gnus-message-setup-hook gnus-message-setup-hook)
+	 )
+    (message (s-lex-format "org-msg-mode=${org-msg-mode}"))
+    (compose-mail)
+    ))
 
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mailings|select" :advice ()

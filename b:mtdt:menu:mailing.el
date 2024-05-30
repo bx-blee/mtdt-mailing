@@ -162,7 +162,7 @@ Module description comes here.
 
     (defun selections ()
       "Dynamic Selections"
-      (apropos-internal "b:mtdt:compose/" 'commandp))
+      (apropos-internal "b:mtdt:m/" 'commandp))
 
     (easy-menu-define
       b:mtdt:menu:mailing:curMailingSelect
@@ -230,7 +230,7 @@ Module description comes here.
 
     (defun selections ()
       "Dynamic Selections"
-      (apropos-internal "b:mtdt:compose/" 'commandp))
+      (apropos-internal "b:mtdt:m/" 'commandp))
 
     (easy-menu-define
       b:mtdt:menu:gnus:mailing:curMailingSelect
@@ -301,7 +301,7 @@ Module description comes here.
 
     (defun selections ()
       "Dynamic Selections"
-      (apropos-internal "b:mtdt:compose/" 'commandp))
+      (apropos-internal "b:mtdt:m/" 'commandp))
 
     (easy-menu-define
       b:mtdt:menu:mailing:curMailingSelect
