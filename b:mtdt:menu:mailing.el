@@ -16,7 +16,7 @@
 ;;;#+BEGIN: b:prog:file/particulars :authors ("./inserts/authors-mb.org")
 (orgCmntBegin "
 * *[[elisp:(org-cycle)][| Particulars |]]* :: Authors, version
-** This File: /bisos/git/auth/bxRepos/blee/mtdt/b:email.el
+** This File: /bisos/git/bxRepos/blee/mtdt-mailing/b:mtdt:menu:mailing.el
 ** Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 " orgCmntEnd)
 ;;;#+END:
@@ -77,7 +77,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:plugin|install" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:plugin|install>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:plugin|install>>  --  -- Adds this as a submenu to menu labeled =<menuLabel= at specified delimited =<menuDelimiter=.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menu:mailing:plugin|install (
 ;;;#+END:
@@ -122,7 +122,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailingItem:define|setup-withCurBuffer" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailingItem:define|setup-withCurBuffer>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailingItem:define|setup-withCurBuffer>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menu:mailingItem:define|setup-withCurBuffer (
 ;;;#+END:
@@ -140,7 +140,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:define|selMailingSelect" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:define|selMailingSelect>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:define|selMailingSelect>>  --  -- Return b:mtdt:menu:mailing:curMailingSelect  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menu:mailing:define|selMailingSelect (
 ;;;#+END:
@@ -208,7 +208,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:define|selGnusMailingSelect" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:define|selGnusMailingSelect>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:define|selGnusMailingSelect>>  --  -- Return b:mtdt:menu:mailing:curGnusMailingSelect  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menu:mailing:define|selGnusMailingSelect (
 ;;;#+END:
@@ -276,7 +276,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:define|derivedMailingInvoke" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:define|derivedMailingInvoke>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:define|derivedMailingInvoke>>  --  -- Return b:mtdt:menu:mailing:curMailingSelect  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menu:mailing:define|derivedMailingInvoke (
 ;;;#+END:
@@ -349,7 +349,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|selMailing-natCompose" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|selMailing-natCompose>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|selMailing-natCompose>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menuItem:define|selMailing-natCompose (
 ;;;#+END:
@@ -366,7 +366,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|selMailing-extCompose" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|selMailing-extCompose>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|selMailing-extCompose>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menuItem:define|selMailing-extCompose (
 ;;;#+END:
@@ -383,7 +383,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|radio-composeFramework" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|radio-composeFramework>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|radio-composeFramework>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menuItem:define|radio-composeFramework (
 ;;;#+END:
@@ -450,7 +450,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|radio-compositionModel" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|radio-compositionModel>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|radio-compositionModel>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menuItem:define|radio-compositionModel (
 ;;;#+END:
@@ -492,7 +492,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:main|define" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:main|define>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:main|define>>  --  -- Return b:mtdt:menu:mailing:main  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:menu:mailing:main|define (
 ;;;#+END:

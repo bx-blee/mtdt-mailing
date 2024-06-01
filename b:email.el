@@ -16,7 +16,7 @@
 ;;;#+BEGIN: b:prog:file/particulars :authors ("./inserts/authors-mb.org")
 (orgCmntBegin "
 * *[[elisp:(org-cycle)][| Particulars |]]* :: Authors, version
-** This File: /bisos/git/auth/bxRepos/blee/mtdt/b:email.el
+** This File: /bisos/git/bxRepos/blee/mtdt-mailing/b:email.el
 ** Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 " orgCmntEnd)
 ;;;#+END:
@@ -73,9 +73,9 @@ Module description comes here.
 " orgCmntEnd)
 ;;;#+END:
 
-;;;#+BEGIN:  b:elisp:defs/cl-defun :defName "b:email|oorr" :advice ()
+;;;#+BEGIN:  b:elisp:defs/cl-defun :defName "b:email|oorr" :advice () :comment /INCOMPLETE/
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  cl-defun   [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email|oorr>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  cl-defun   [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email|oorr>>  -- /INCOMPLETE/ -- Return an email address based on one of the specified keywords.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (cl-defun b:email|oorr (
 ;;;#+END:
@@ -86,7 +86,6 @@ Module description comes here.
                         )
    " #+begin_org
 ** DocStr: Return an email address based on one of the specified keywords.
-and side-effects are documented here
 #+end_org "
    (let* (
           ($inHere (b:log|entry (b:func$entry)))
@@ -131,7 +130,7 @@ and side-effects are documented here
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:email:address|insert" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email:address|insert>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email:address|insert>>  --  -- Insert =addrStr= at point. Comma separate it if needed. Used for entry of addresses in mail headers.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:email:address|insert (
 ;;;#+END:
@@ -159,7 +158,7 @@ and side-effects are documented here
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:email:header:buf|get" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email:header:buf|get>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email:header:buf|get>>  --  -- RETURNS Specified Header as a string.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:email:header:buf|get (
 ;;;#+END:
@@ -195,7 +194,7 @@ and side-effects are documented here
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:email|latest-unsent-mail-buf" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email|latest-unsent-mail-buf>>  --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email|latest-unsent-mail-buf>>  --  -- Return most recently created unsent mail buffer.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:email|latest-unsent-mail-buf (
 ;;;#+END:
