@@ -1,40 +1,32 @@
-#+title: MTDT: Mail Templating, Distribution and Tracking Emacs Package
+#+title: MTDT-MAILING: Mail Templating, Distribution and Tracking Emacs Package
 
+Panel Controls:: [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] [[elisp:(save-buffer)][Save]] [[elisp:(kill-buffer)][Quit]] [[elisp:(bury-buffer)][Bury]]
 
-MTDT is part of Blee. Blee (ByStar Libre-Halaal Emacs Environment) serves as the usage environment of
-BISOS (ByStar Internet Services OS). BISOS forms the foundation
-of the "Libre-Halaal ByStar Digital Ecosystem." ByStar is rooted in the model of proper governance of
-polyexistentials which rejects the Western Intelectual Propoerty Rights (IPR) regime.
-For a comprehensive description, please refer to the book 'The Nature of Polyexistentials.'
+* Introduction
 
-MTDT is developed in elisp with COMEEGA (Collaborative Org-Mode Enhanced Emacs Generalized Authorship).
-Please follow Blee-COMEEGA  conventions when editing MTDT elisp files.
+The MTDT-Mailing Emacs/Blee Package is part of the layered MTDT packages.
+Familiarize yourslef with the  *MTDT Overview* at https://github.com/bx-blee/mtdt before
+going any further.
 
-MTDT augments the Emacs email environment (Gnus) by providing templates for mailings and distributions. You can
-think of MTDT as a Libre-Halaal Convivial equivalent of Constant Contact for Emacs.
-MTDT allows you to create *Mailing Tempaltes* with content in 1) Plain Text, 2) Org-Msg, 3) LaTeX and 4) Plain Html.
-The Mailing Templates can then be used to =Send= or =Distribute=  to =Recipients=.
-=Recipients= can be derived from =Names= in address books such as =BBDB3=.
+MTDT-Mailing provides a set of facilities to specify, customize and send mail based on
+templates. MTDT-Mailing introduces concepts and vocabulary that is depicted in the
+figure below.
 
-Documentation of MTDT is in the form of a series of related panels. Primary MTDT Blee-Panel is
-[[file:./panels/mtdt/_nodeBase_/fullUsagePanel-en.org]].
-With some limitations, MTDT can be used an a stand alone Emacs package.
+* Blee Panels Documentation
 
-Key components of BISOS and Blee that interact with MTDT include:
+This page is an just an overview, for the details refer to the Blee-Panels.
 
-- MARMEE -- Multi-Account Resident Mail Exchange Environment
-- LCNT -- ByStar Libre Content production, publication
-- Mailings, Names, Dist facilities of BISOS
+Documentation of MTDT is in the form of a series of related Blee panels. Primary MTDT-Mailing Blee-Panel is
+[[file:./panels/mtdt-mailing/_nodeBase_/fullUsagePanel-en.org]]
+
+* Overview of MTDT-Mailing Concepts and Terminology
 
 A graphical overview of the MTDT model is provided below.
 
-# #+html: <p align="center"><img src="images/mtdtModel.jpg" /></p>.
-#+html: <p align="center"><img src="images/mtdtModel.jpg" /></p>
-
-#+CAPTION: MTDT Model C-c C-x C-v (org-toggle-inline-images)
-#+NAME:   fig:images/mtdtModel.jpg]]
+#+CAPTION: MTDT-Mailing Model C-c C-x C-v (org-toggle-inline-images)
+#+NAME:   fig:images/mtdtConcepts_l1.jpg]]
 #+ATTR_HTML: :width 1100px
-[[./images/mtdtModel.jpg]]
+[[./images/mtdtConcepts_l1.jpg]]
 
 
 # ###+BEGIN: blee:bxPanel:footerOrgParams

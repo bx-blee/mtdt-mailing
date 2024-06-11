@@ -64,12 +64,21 @@ Module description comes here.
 " orgCmntEnd)
 ;;;#+END:
 
+
+;;;#+BEGIN:  b:elisp:defs/defgroup :defName "b:b:mtdt:extComposition" :defValue "nil"
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defgroup   [[elisp:(outline-show-subtree+toggle)][||]]  <<b:b:mtdt:extComposition>> ~nil~ --  -- Blee Mailings Library. Used by b:b:mtdt:distr.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
 (defgroup b:b:mtdt:extComposition nil
-  "Blee Mailings Library. Used by b:b:mtdt:distr."
+;;;#+END:
+" #+begin_org
+** DocStr: Blee Mailings Library. Used by b:b:mtdt:distr.
+#+end_org "
   :group 'blee
   :prefix "b:b:mtdt:mailings:"
   :link '(file-link "/bisos/panels/blee-core/mail/_nodeBase_/fullUsagePanel-en.org")
   )
+
 
 ;;;#+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :title "Composition Model" :extraInfo "ExtComposition, NativeComposition"
 (orgCmntBegin "
@@ -118,6 +127,49 @@ Module description comes here.
 
 #+RESULTS:
 : ExtComposition
+
+" orgCmntEnd)
+
+;;;#+BEGIN:  b:elisp:defs/defcustom :defName "b:mtdt+compositionModel" :defValue "'b:mtdt+compositionModel::NativeComposition" :comment "/MENU/"
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defcustom  [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt+compositionModel>> ~'b:mtdt+compositionModel::NativeComposition~ -- /MENU/ -- Selected and effective compose framework as customizable choices.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defcustom b:mtdt+compositionModel 'b:mtdt+compositionModel::NativeComposition
+;;;#+END:
+    " #+begin_org
+** DocStr: Selected Composition Model.
+#+end_org "
+	:group 'b:b:mtdt:mailings
+	:type '(choice
+	        (const :tag "ExtComposition" b:mtdt+compositionModel::ExtComposition "External Composition Model." )
+		(const :tag "NativeComposition" b:mtdt+compositionModel::NativeComposition "Native Composition Model.")
+                ))
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt+compositionModel|actuate" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt+compositionModel|actuate>>  --  -- Based on <framework, set things up for composition in that framework.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt+compositionModel|actuate (
+;;;#+END:
+                                       <compositionModel
+                                       )
+  " #+begin_org
+** DocStr: Based on <framework, set things up for composition in that framework.
+#+end_org "
+  (let* (
+         ($inHere (b:log|entry (b:func$entry)))
+	 )
+    (b:var:custom:choices|set 'b:mtdt+compositionModel <compositionModel)
+    b:mtdt+compositionModel))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:compose+framework|actuate 'b:mtdt:compose+framework::basic)
+#+END_SRC
+
+#+RESULTS:
+: b:mtdt:compose+framework::basic
 
 " orgCmntEnd)
 
