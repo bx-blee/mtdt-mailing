@@ -174,6 +174,7 @@ Module description comes here.
 " orgCmntEnd)
 
 
+
 ;;;#+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :title "External Composition" :extraInfo "LaTeX (lcnt) editable content"
 (orgCmntBegin "
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _External Composition_: |]]  LaTeX (lcnt) editable content  [[elisp:(org-shifttab)][<)]] E|
@@ -181,11 +182,11 @@ Module description comes here.
 ;;;#+END:
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:originate|with-file" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:originate|with-file%%%" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:originate|with-file>>  --  -- Out of macro work of b:mtdt:originate$mailing-defun. ModuleLocal.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:originate|with-file%%%>>  --  -- Out of macro work of b:mtdt:originate$mailing-defun. ModuleLocal.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:originate|with-file (
+(defun b:mtdt:originate|with-file%%% (
 ;;;#+END:
                                     <mailingFilePath
                                     args
@@ -217,7 +218,7 @@ Module description comes here.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "bx:ephemera:dated|pathName-in" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<bx:ephemera:dated|pathName-in>>  --  -- Return (format-time-string \"%Y-%m-%d-%H-%M-%S\") plus a counter.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<bx:ephemera:dated|pathName-in>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun bx:ephemera:dated|pathName-in (
 ;;;#+END:
@@ -249,7 +250,7 @@ NOTYET, counter has not been implemented yet.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compose:ephemera|copyToBase" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose:ephemera|copyToBase>>  --  -- Copy recursively <extSrcBase to b:mtdt:compose:ephemera:base.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose:ephemera|copyToBase>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:compose:ephemera|copyToBase (
 ;;;#+END:
@@ -278,7 +279,7 @@ NOTYET, counter has not been implemented yet.
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:compose:ephemera|copyToBase (symbol-name './examples/mailings/rtl-example.msgOrg) (symbol-name '.))
+(b:mtdt:compose:ephemera|copyToBase (symbol-name '/bisos/git/bxRepos/blee/mtdt-mailing/examples/mailings/extArtMailing/extArtMailing.mail) (symbol-name '.))
 #+END_SRC
 
 #+RESULTS:
@@ -288,7 +289,7 @@ NOTYET, counter has not been implemented yet.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compose:ephemera|mailBufRecord" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose:ephemera|mailBufRecord>>  --  -- Record name of <buf at <ephemeraMailingFilePath as mail.buf. To be obtained with [[b:mtdt:compose:ephemera|mailBufObtain]].  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose:ephemera|mailBufRecord>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:compose:ephemera|mailBufRecord (
 ;;;#+END:
@@ -297,6 +298,7 @@ NOTYET, counter has not been implemented yet.
                                               )
   " #+begin_org
 ** DocStr: Record name of <buf at <ephemeraMailingFilePath as mail.buf. To be obtained with [[b:mtdt:compose:ephemera|mailBufObtain]].
+*** NOTYET, Is it used for going between lisp and bash?
 #+end_org "
   (let* (
          ($inHere (b:log|entry (b:func$entry)))
@@ -323,7 +325,7 @@ NOTYET, counter has not been implemented yet.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compose:ephemera|mailBufObtain" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose:ephemera|mailBufObtain>>  --  -- Obtain the name of the mailing buffer that was previously recorded by [[b:mtdt:compose:ephemera|mailBufRecord]].  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose:ephemera|mailBufObtain>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:compose:ephemera|mailBufObtain (
 ;;;#+END:
@@ -352,11 +354,11 @@ NOTYET, counter has not been implemented yet.
 " orgCmntEnd)
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mailing:content|findFile" :comment "Likely UNUSED" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mailing:content|findFile%%%" :comment "Likely UNUSED" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mailing:content|findFile>>  -- Likely UNUSED -- LIKELY UNUSED Return nil if file does not exist. Based on existence, determine name of mailing content file.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mailing:content|findFile%%%>>  -- Likely UNUSED -- LIKELY UNUSED Return nil if file does not exist. Based on existence, determine name of mailing content file.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:mailing:content|findFile (
+(defun b:mtdt:mailing:content|findFile%%% (
 ;;;#+END:
                                         )
   " #+begin_org
@@ -390,7 +392,7 @@ We first look for content.msgOrg.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "mtdt/gotoMailBuf" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<mtdt/gotoMailBuf>>  --  -- Go to the unsent buffer or to mailing's content.mail buffer. Primarily used in mailing.mastex.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<mtdt/gotoMailBuf>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun mtdt/gotoMailBuf (
 ;;;#+END:
@@ -426,7 +428,7 @@ We first look for content.msgOrg.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:content:update/mailBufAndVisit" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:content:update/mailBufAndVisit>>  --  -- Goto mailBuf, update it, raise it. preview it.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:content:update/mailBufAndVisit>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:content:update/mailBufAndVisit (
 ;;;#+END:
@@ -450,7 +452,7 @@ NOTYET
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:content:tex/buildSentinel" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:content:tex/buildSentinel>>  --  -- This is triggered after build is complete. We go back to the mail buffer.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:content:tex/buildSentinel>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:content:tex/buildSentinel (
 ;;;#+END:
@@ -473,7 +475,7 @@ NOTYET
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:content:tex/buildReleaseAndMailBuf" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:content:tex/buildReleaseAndMailBuf>>  --  -- LaTeX build+release + display build continue in sentinel when build is complete.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:content:tex/buildReleaseAndMailBuf>>  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:content:tex/buildReleaseAndMailBuf (
 ;;;#+END:
@@ -500,6 +502,8 @@ NOTYET
 NOTYET
 #+END_SRC
 " orgCmntEnd)
+
+
 
 
 ;;;#+BEGIN: b:elisp:file/provide :modName nil

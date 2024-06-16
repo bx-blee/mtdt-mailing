@@ -27,7 +27,7 @@
 * +
 *   =Decedents=  :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-mailing/README")][README]] *|*
 *                                        *━━━━━━━━━━━━━━━━━━━━━━━━*
-*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt/_nodeBase_")][ = /<mtdt>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-distribution/_nodeBase_")][ = /<mtdt-distribution>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-mailing/_nodeBase_")][ = /<mtdt-mailing>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-names/_nodeBase_")][ = /<mtdt-names>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-share/_nodeBase_")][ = /<mtdt-share>/ = ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt/_nodeBase_")][ =mtdt= ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-distribution/_nodeBase_")][ = /<mtdt-distribution>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-mailing/_nodeBase_")][ = /<mtdt-mailing>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-names/_nodeBase_")][ = /<mtdt-names>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/blee-core/mail/mailings/mtdt-share/_nodeBase_")][ = /<mtdt-share>/ = ]] *|*
 *   /Ancestors/  :: [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/mail/mailings/_nodeBase_")][ =mailings= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/mail/_nodeBase_")][ =mail= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/blee-core/_nodeBase_")][ =blee-core= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/_nodeBase_")][ = /<panels>/ = ]] *|* [[elisp:(dired "//bisos")][ ~bisos~ ]] *|*
 *                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_                          [[elisp:(org-shifttab)][<)]] E|
 ####+END
@@ -35,53 +35,61 @@
 * [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Overview and Roadmap:* |]] <<Panel>>   [[elisp:(org-shifttab)][<)]] E|
 ####+END
 ** +
-** Scope of this panel is the MTDT Emacs Package.
-** MTDT is part of Blee and BISOS. See the blee-core/mail/mailing panel for related information.
-** Start with  mental model of MTDT in blee-core/mail/mailing/mtdt-conceptAndDesign.
+** Scope of this panel is the MTDT-MAILING Emacs Package.
+** MTDT-Mailing consists of two layers. Mailings Creation and Mailings  Execution
 ** B|
-####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "MTDT-2 Evolution" :anchor "" :extraInfo ""
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Mailings Creation" :anchor "" :extraInfo ""
 * /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
-* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *MTDT-2 Evolution:* |]]    [[elisp:(org-shifttab)][<)]] E|
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Mailings Creation_: |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 1 :sep nil :folding? nil :label "bashIcm" :icmName "startMailing.sh" :comment "Initial text, orgMsg" :afterComment ""
+* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /bashIcm/ :: [[elisp:(lsip-local-run-command "startMailing.sh -i examples")][startMailing.sh]]  [[elisp:(lsip-local-run-command "startMailing.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "startMailing.sh -i describe")][describe]] *|*  =Initial text, orgMsg= *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+* ~lcnLcntMailingLib.sh~ is used both in ~startMailing.sh~ and also in ~seedLcntProc.sh~  |+
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Plain-Text Mailing Creation" :anchor "" :extraInfo "X-ComposeFwrk: plainText"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Plain-Text Mailing Creation:* |]]  X-ComposeFwrk: plainText  [[elisp:(org-shifttab)][<)]] E|
 ####+END
 ** +
-** For distribution. Create distRecipsFiles.fv -- as a list of .el
-** Start MTDT-2 by updating figure and panel. Get the module file names. ReFactor exisiting code.
+** startMailing.sh -v -n showRun -f -p headerFile=/bxo/usg/bystar/bpos/usageEnvs/selected/mailings/templates/marmee/selected/headers.mail -i mailingTextGen mailing-text.mail
+** ====
+** startMailing.sh -v -n showRun -f -p headerFile=/bxo/usg/bystar/bpos/usageEnvs/selected/mailings/templates/marmee/selected/headers.mail -i mailingTextGenRtl 240612175517.mail
 ** B|
-####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "BLEE-MTDT-PKG -- Elisp Design" :anchor "" :extraInfo ""
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "OrgMsg Mailing Creation" :anchor "" :extraInfo "X-ComposeFwrk: orgMsg"
 * /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
-* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *BLEE-MTDT-PKG -- Elisp Design:* |]]    [[elisp:(org-shifttab)][<)]] E|
-####+END
-** Overview And Direction:
-There are two layers
-MTDT consists of:
-1)   mtdt-lib.el    --- General purpose libraries
-2)   mtdt-newMail.el   --- Initial outgoing email -- User Interface (currently mtdt-if.el)
-3)   mtdt-contextedMail.el  --- Replies and Forwards
-User documentation is primarily limited to mtdt-if.el
-B|
-####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Elisp Implementation Plan" :anchor "" :extraInfo "TODOs"
-* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
-* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Elisp Implementation Plan:* |]]  TODOs  [[elisp:(org-shifttab)][<)]] E|
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *OrgMsg Mailing Creation:* |]]  X-ComposeFwrk: orgMsg  [[elisp:(org-shifttab)][<)]] E|
 ####+END
 ** +
-** TODO Package mtdt for elpa
-** TODO Revisit bueMailingStatic.sh templates -- Headers becomes a single file, no directory of its own
-** TODO After creating unsent mail buffer, save it as "unsent mailing"
-** TODO Revisit bueMailingStatic.sh templates -- Add "unsent mailing" as a buffer visit
-** TODO On entry into "unsent mailing" buffer, update all dblocks
-** TODO Revisit, to save current all tex buffers then  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildResultsRelease")][lcntProc.sh -v -n showRun -i buildResultsRelease]]
-** TODO Modernize mailing.ttytex buffer
-** WAITING Look into org-mime and org-msg
-** TODO Figure how to deal with mail citations -- htmlized supercite
-** TODO Adopt and automate LaTeX email quoting ---  https://tex.stackexchange.com/questions/49587/typesetting-email-with-internet-style-quoting-using-latex
-** -
-####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :sep t :title "mtdt-if.el" :anchor "" :extraInfo "file:/bisos/blee/env3/boot/mtdt-if.el"
-** /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
-** [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| /mtdt-if.el:/ |]]  file:/bisos/blee/env3/boot/mtdt-if.el  [[elisp:(org-shifttab)][<)]] E|
+** startMailing.sh -v -n showRun -f -p headerFile=/bxo/usg/bystar/bpos/usageEnvs/selected/mailings/templates/marmee/selected/headers.mail -i mailingOrgMsgGen mailing.orgMsg
+** ====
+** startMailing.sh -v -n showRun -f -p headerFile=/bxo/usg/bystar/bpos/usageEnvs/selected/mailings/templates/marmee/selected/headers.mail -i mailingOrgMsgGenRtl 240612175806.orgMsg
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "LCNT Mailing Creation" :anchor "" :extraInfo "X-ComposeFwrk: LaTeX"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *LCNT Mailing Creation:* |]]  X-ComposeFwrk: LaTeX  [[elisp:(org-shifttab)][<)]] E|
 ####+END
-*** +
-*** Per Mailing commands creation
-*** B|
+####+BEGIN: blee:panel:icm:bash:intro :outLevel 2 :sep nil :folding? nil :label "bashIcm" :icmName "lcnLcntGens.sh" :comment "" :afterComment ""
+** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /bashIcm/ :: [[elisp:(lsip-local-run-command "lcnLcntGens.sh -i examples")][lcnLcntGens.sh]]  [[elisp:(lsip-local-run-command "lcnLcntGens.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "lcnLcntGens.sh -i describe")][describe]] *|*  == *|*   [[elisp:(org-shifttab)][<)]] E|
+####+END:
+** +
+** ======== Create Your LcntDoc First
+** cd BASEDIR
+** lcnLcntGens.sh -n showRun -p cntntRawHome=. -p srcForms="art" -p lcntNu=00000 -p srcLangs="en+fa" -i baseFullStart
+** lcnLcntGens.sh -n showRun -p cntntRawHome=. -i lcntInfoFullRenew    # NEEDED after baseFullStart as of 2023
+** ======== Any document can also have mailing builds --- mailingPrep
+** lcntProc.sh -v -n showRun -p cntntRawHome=. -i mailingFullPrep  # mailingName=example-artLtr
+** ======== Evolve/Develope Mailings
+** Edit mailing file --- lcnt release+compose
+** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Mailings and Templates Execution" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Mailings and Templates Execution_: |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "MUA Stencil Execution" :anchor "" :extraInfo ""
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _MUA Stencil Execution_: |]]    [[elisp:(org-shifttab)][<)]] E|
+####+END
+
 ####+BEGIN: blee:bxPanel:separator :outLevel 1
 * /[[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]] [[elisp:(delete-other-windows)][|1]]/
 ####+END

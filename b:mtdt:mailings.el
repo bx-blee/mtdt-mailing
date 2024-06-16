@@ -22,7 +22,7 @@
 ;;;#+END:
 
 (orgCmntBegin "
-* /[[elisp:(org-cycle)][| Description |]]/ :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
+* /[[elisp:(org-cycle)][| Description |]]/ :: [[file:/bisos/panels/blee-core/mail/mailings/mtdt-mailing/_nodeBase_/fullUsagePanel-en.org][MTDT-Mailing Panel]] |+
 Module description comes here.
 ** Relevant Pointers and Panels:
 ** Status: In use with blee3
@@ -75,7 +75,7 @@ Module description comes here.
 #+end_org "
   :group 'blee
   :prefix "b:b:mtdt:mailings:"
-  :link '(file-link "/bisos/panels/blee-core/mail/_nodeBase_/fullUsagePanel-en.org")
+  :link '(file-link "/bisos/panels/blee-core/mail/mailings/mtdt-mailing/_nodeBase_/fullUsagePanel-en.org")
   )
 
 
@@ -118,7 +118,7 @@ Module description comes here.
 		(const :tag "OrgMsg" b:mtdt:compose+framework::orgMsg "OrgMsg Mail Composition")
 		(const :tag "LaTeX" b:mtdt:compose+framework::latex "External LaTeX Mail Composition")
 		(const :tag "HTML" b:mtdt:compose+framework::html "External HTML Mail Composition")
-		(const :tag "ofSelMailing" b:mtdt:compose+framework::ofSelMailing "Based on Selected Mailing Framework")
+		(const :tag "ofSelMailing" b:mtdt:compose+framework::ofSelMailing "Based on Selected Mailing Framework of Mua")
                 ))
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compose+framework|actuate" :advice ()
@@ -481,31 +481,63 @@ Kills the mailingBuf.
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:header:buf:get|mailingpurpose" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:header:buf:get|mailingpurpose>>  --  -- RETURNS Specified Header as a string.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:header:buf:get|mailingpurpose>>  --  -- RETURNS X-MailingPurpose specified header as a string.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:header:buf:get|mailingpurpose (
 ;;;#+END:
                                <mailingBuf
                                )
    " #+begin_org
-** DocStr: RETURNS Specified Header as a string.
+** DocStr: RETURNS X-MailingPurpose specified as a string converted to ChoiceLable m,t,g,a.
 #+end_org "
    (let* (
-          ($inHere (b:log|entry (b:func$entry)))
+          ($inHere (b:trace|entry (b:func$entry)))
+          ($header nil)
           ($result nil)
           )
-     (setq $result (b:email:header:buf|get 'x-mailingpurpose <mailingBuf))
-     (unless $result
+
+     (defun setResult (<purpose)
+       (setq $result
+             (b:var:custom:choices|getChoiceLabel
+              'b:mtdt:mailing+purpose
+              <purpose)))
+
+     (setq $header (b:email:header:buf|get 'x-mailingpurpose <mailingBuf))
+     (if-unless $header
        (setq $result
              (b:var:custom:choices|getChoiceLabel
               'b:mtdt:mailing+purpose
               'b:mtdt:mailing+purpose::Mailing)))
+     (else-when $header
+       (cond
+        ((s-equals? "mailing" (s-downcase $header))
+         (setResult 'b:mtdt:mailing+purpose::Mailing))
+        ((s-equals? "template" (s-downcase $header))
+         (setResult 'b:mtdt:mailing+purpose::Template))
+        ((s-equals? "mua" (s-downcase $header))
+         (setResult 'b:mtdt:mailing+purpose::Mua))
+        ((s-equals? "Any" (s-downcase $header))
+         (setResult 'b:mtdt:mailing+purpose::Any))
+        (t
+         (b|error (b|fmt$ "Unknown x-mailingpurpose = ${$header}")))
+        ))
      $result))
 
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:header:buf:get|mailingpurpose (save-current-buffer (find-file (symbol-name './examples/mailings/rtl-example.msgOrg))))
+(b:mtdt:header:buf:get|mailingpurpose (save-current-buffer (find-file (symbol-name './examples/mailings/b:rtl-example.msgOrg))))
+#+END_SRC
+
+#+RESULTS:
+: m
+
+" orgCmntEnd)
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:header:buf:get|mailingpurpose (save-current-buffer (find-file (symbol-name './examples/mailings/g:rtl-example.msgOrg))))
 #+END_SRC
 
 #+RESULTS:
@@ -1156,35 +1188,160 @@ NOTYET
 " orgCmntEnd)
 ;;;#+END:
 
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mfp/derive" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mfp/derive>>  --  -- Derive a function from a mailingFile  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:mfp/derive (
+;;;#+END:
+                          <mailingFile
+                          )
+  " #+begin_org
+** DocStr: Derive a function from a mailingFile
+#+end_org "
+    (let* (
+           ($inHere (b:log|entry (b:func$entry)))
+	   )
+      (b:mtdt:derive/fromFile <mailingFile)
+      ))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:mfp/derive (symbol-name './examples/mailings/t:rtl-example.msgOrg))
+#+END_SRC
+" orgCmntEnd)
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mfp/deriveAndSelect" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mfp/deriveAndSelect>>  --  -- Derive a function from a mailingFile and select it.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:mfp/deriveAndSelect (
+;;;#+END:
+                           <mailingFile
+                           )
+  " #+begin_org
+** DocStr: Derive a function from a mailingFile and select it.
+#+end_org "
+    (let* (
+        ($inHere (b:log|entry (b:func$entry)))
+	)
+      (b:mtdt:mailings|select (list (b:mtdt:derive/fromFile <mailingFile)))
+      ))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:mfp/deriveAndSelect (symbol-name './examples/mailings/g:rtl-example.msgOrg))
+#+END_SRC
+" orgCmntEnd)
+
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mfp/originate" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mfp/originate>>  --  -- Create a frame, select it, then invoked =<mailingFunc=.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:mfp/originate (
+;;;#+END:
+                           <mailingFile
+                           )
+  " #+begin_org
+** DocStr: Originate result in b:mtdt:mfp/compose or b:mtdt:mfp/extCompose based on :extSrcBase.
+#+end_org "
+    (let* (
+           ($inHere (b:log|entry (b:func$entry)))
+	   ($mailingParams (b:mtdt:header:buf:get|paramsOfMailingParams
+                            (save-current-buffer
+                              (find-file <mailingFile))))
+	   (<extSrcBase (or (plist-get $mailingParams :extSrcBase) nil))
+	   )
+
+    (if <extSrcBase
+        (b:mtdt:mfp/extCompose <mailingFile)
+      (b:mtdt:mfp/compose <mailingFile)
+      )))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:mfp/originate (symbol-name '/bisos/git/bxRepos/blee/mtdt-mailing/examples/mailings/extArtMailing/extArtMailing.mail))
+#+END_SRC
+" orgCmntEnd)
+
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mfp/compose" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mfp/compose>>  --  -- Create a frame, select it, then invoked =<mailingFunc=.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mfp/compose>>  --  -- Derive from <mailingFile and then compose.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (defun b:mtdt:mfp/compose (
 ;;;#+END:
                            <mailingFile
                            )
   " #+begin_org
-** DocStr: Create a frame, select it, then invoked =<mailingFunc=.
+** DocStr: Derive from <mailingFile and then compose.
 #+end_org "
     (let* (
         ($inHere (b:log|entry (b:func$entry)))
-	)))
-
+	)
+      (b:mtdt:mailings|framedComposeWithFn (b:mtdt:derive/fromFile <mailingFile))
+      ))
 
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:mailings|framedComposeWithFn (list (b:mtdt:name|funcName (symbol-name './examples/mailings/rtl-example.msgOrg))))
+(b:mtdt:mfp/compose (symbol-name '/bisos/git/bxRepos/blee/mtdt-mailing/examples/mailings/extArtMailing/extArtMailing.mail))
 #+END_SRC
 " orgCmntEnd)
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-compose/with-file" :advice ()
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mfp/extCompose" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-compose/with-file>>  --  -- Given a mailing file, derive the compose commands based on mailingName and invoke it.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mfp/extCompose>>  --  -- Copy the content of base of <mailingFile and then compose it. The copies content can be edited without impacting the mailing.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:setup-and-compose/with-file (
+(defun b:mtdt:mfp/extCompose (
+;;;#+END:
+                              <mailingFile
+                              )
+  " #+begin_org
+** DocStr: Copy the content of base of <mailingFile and then compose it. The copies content can be edited without impacting the mailing.
+#+end_org "
+    (let* (
+           ($inHere (b:log|entry (b:func$entry)))
+	   ($mailingParams (b:mtdt:header:buf:get|paramsOfMailingParams
+                            (save-current-buffer
+                              (find-file <mailingFile))))
+           ($ephemeraMailingFilePath nil)
+	   (<extSrcBase (or (plist-get $mailingParams :extSrcBase) nil))
+	   )
+      (unless <extSrcBase
+        (setq <extSrcBase "."))
+
+      (setq $ephemeraMailingFilePath
+	    (b:mtdt:compose:ephemera|copyToBase <mailingFile <extSrcBase))
+
+      (b:mtdt:mailings|framedComposeWithFn (b:mtdt:derive/fromFile $ephemeraMailingFilePath))
+
+      (b:mtdt:compose:ephemera|mailBufRecord
+       (file-name-directory $ephemeraMailingFilePath)
+       (buffer-name (b:email|latest-unsent-mail-buf))
+       )
+      ))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:mfp/extCompose (symbol-name '/bisos/git/bxRepos/blee/mtdt-mailing/examples/mailings/extArtMailing/extArtMailing.mail))
+#+END_SRC
+" orgCmntEnd)
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-compose/with-file%%" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-compose/with-file%%>>  --  -- Given a mailing file, derive the compose commands based on mailingName and invoke it.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:setup-and-compose/with-file%% (
 ;;;#+END:
                                            <mailingFilePath
                                            )
@@ -1194,40 +1351,24 @@ NOTYET
   (interactive)
   (let* (
          ($inHere (b:log|entry (b:func$entry)))
-	 ($mailingName nil)
-	 ($mailingBuf nil)
-	 ($funcSymbol nil)
 	 )
-    (find-file-read-only-other-frame <mailingFilePath)
-    (setq $mailingBuf (current-buffer))
-    (setq $mailingName (b:mtdt:mailing:getName/with-buffer $mailingBuf))
-    (setq $funcSymbol (intern (b:mtdt:mailing:compose|get-function-name $mailingName)))
-    (when (commandp $funcSymbol)
-      ;;(switch-to-buffer $mailingBuf)
-      (call-interactively $funcSymbol)
-      )
-    (when (not (commandp $funcSymbol))
-      (b:mtdt:setup$with-filePath <mailingFilePath)
-      (call-interactively $funcSymbol)
-      )
-    ;;; Most recent buffer should now be the "*unsent mail<n>*"
-    (switch-to-buffer (b:mtdt:mailing|latest-unsent-mail-buf))
+    (b:mtdt:mailings|framedComposeWithFn (b:mtdt:derive/fromFile <mailingFilePath))
     ))
 
 
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:setup-and-compose/with-file (symbol-name './examples/mailings/rtl-example.msgOrg))
+(b:mtdt:setup-and-compose/with-file (symbol-name './examples/mailings/b:rtl-example.msgOrg))
 #+END_SRC
 " orgCmntEnd)
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-compose/with-curBuffer" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-compose/with-curBuffer%%" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-compose/with-curBuffer>>  --  -- Convert buffer to filePath and call b:mtdt:setup-and-compose/with-file then.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-compose/with-curBuffer%%>>  --  -- Convert buffer to filePath and call b:mtdt:setup-and-compose/with-file then.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:setup-and-compose/with-curBuffer (
+(defun b:mtdt:setup-and-compose/with-curBuffer%% (
 ;;;#+END:
                                                 )
   " #+begin_org
@@ -1244,11 +1385,11 @@ NOTYET
 " orgCmntEnd)
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compose|with-file" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compose|with-file%%%" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose|with-file>>  --  -- Out of macro work of b:mtdt:compose$mailing-defun.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compose|with-file%%%>>  --  -- Out of macro work of b:mtdt:compose$mailing-defun.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:compose|with-file (
+(defun b:mtdt:compose|with-file%%% (
 ;;;#+END:
                                  <mailingFilePath
                                  args
@@ -1291,11 +1432,11 @@ NOTYET
 
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-originate/with-file" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-originate/with-file%%" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-originate/with-file>>  --  -- Given a mailing file, initiate an outgoing message.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-originate/with-file%%>>  --  -- Given a mailing file, initiate an outgoing message.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:setup-and-originate/with-file (
+(defun b:mtdt:setup-and-originate/with-file%% (
 ;;;#+END:
                                              <mailingFilePath
                                              )
@@ -1343,11 +1484,11 @@ NOTYET, delete the BCC field, if there is one.
 " orgCmntEnd)
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:originate|with-file" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:originate|with-file%%" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:originate|with-file>>  --  -- Out of macro work of b:mtdt:originate$mailing-defun.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:originate|with-file%%>>  --  -- Out of macro work of b:mtdt:originate$mailing-defun.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:originate|with-file (
+(defun b:mtdt:originate|with-file%% (
 ;;;#+END:
                                              <mailingFilePath
                                              args
@@ -1366,7 +1507,7 @@ ModuleLocal.
     (text-mode) ;; bxms-compose-from-base checks for major-mode
     (bxms-compose-from-base (expand-file-name (file-name-directory <mailingFilePath)) args)
     (display-buffer
-     (switch-to-buffer (b:mtdt:mailing|latest-unsent-mail-buf)))
+     (switch-to-buffer (b:email|latest-unsent-mail-buf)))
     ))
 
 (orgCmntBegin "
@@ -1377,11 +1518,11 @@ ModuleLocal.
 " orgCmntEnd)
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-originate/with-curBuffer" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:setup-and-originate/with-curBuffer%%" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-originate/with-curBuffer>>  --  -- Converts buffer to filePath and calls b:mtdt:setup-and-compose/with-file then.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:setup-and-originate/with-curBuffer%%>>  --  -- Converts buffer to filePath and calls b:mtdt:setup-and-compose/with-file then.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:setup-and-originate/with-curBuffer (
+(defun b:mtdt:setup-and-originate/with-curBuffer%% (
 ;;;#+END:
                                                   )
   " #+begin_org
@@ -1399,9 +1540,10 @@ ModuleLocal.
 " orgCmntEnd)
 
 
+
 ;;;#+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :title "Mailing File Customization" :extraInfo ""
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _Mailing File Processors_: |]]  b:mtdt:mfp  [[elisp:(org-shifttab)][<)]] E|
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _Mailing File Customization_: |]]    [[elisp:(org-shifttab)][<)]] E|
 " orgCmntEnd)
 ;;;#+END:
 
