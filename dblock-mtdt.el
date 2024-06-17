@@ -146,7 +146,7 @@ A library of dblock for b:elisp:file/xxx comeega-file-elements.
 (defun org-dblock-write:b:mtdt:content/actions (<params)
 ;;;#+END:
    " #+begin_org
-** DocStr: In a content.{mail,msgOrg} file insert orgActionLinks for what applies to that mailing.
+** DocStr: In a content.{mail,orgMsg} file insert orgActionLinks for what applies to that mailing.
 Behaviour should be different based on what type of buffer we are in.
 #+end_org "
   (let* (

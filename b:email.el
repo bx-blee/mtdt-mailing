@@ -183,7 +183,7 @@ Module description comes here.
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:email:header:buf|get 'x-mailingname (save-current-buffer (find-file (symbol-name './examples/mailings/rtl-example.msgOrg))))
+(b:email:header:buf|get 'x-mailingname (save-current-buffer (find-file (symbol-name './examples/mailings/rtl-example.orgMsg))))
 #+END_SRC
 
 #+RESULTS:
@@ -218,6 +218,42 @@ Module description comes here.
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
 (b:email|latest-unsent-mail-buf)
+#+END_SRC
+
+#+RESULTS:
+: #<buffer *unsent mail*>
+
+" orgCmntEnd)
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:email|latest-sent-mail-buf" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:email|latest-sent-mail-buf>>  --  -- Return most recently created unsent mail buffer.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:email|latest-sent-mail-buf (
+;;;#+END:
+                                       )
+   " #+begin_org
+** DocStr: Return most recently sent mail buffer. These had not been displayed, so ordering is different.
+Unlike unsent mail, we don't loop-break.
+#+end_org "
+   (let* (
+          ($inHere (b:log|entry (b:func$entry)))
+          ($found nil)
+          )
+     (loop-for-each $each (buffer-list)
+       ;; (message (buffer-name each))
+       (when (s-contains? "*sent mail" (buffer-name $each))
+         (setq $found $each)
+         ;;(loop-break)
+         ))
+    $found))
+
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:email|latest-sent-mail-buf)
 #+END_SRC
 
 #+RESULTS:

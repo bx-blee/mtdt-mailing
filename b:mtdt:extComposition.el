@@ -211,7 +211,7 @@ Module description comes here.
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:mailings|framedComposeWithFn (list (b:mtdt:name|funcName (symbol-name './examples/mailings/rtl-example.msgOrg))))
+(b:mtdt:mailings|framedComposeWithFn (list (b:mtdt:name|funcName (symbol-name './examples/mailings/rtl-example.orgMsg))))
 #+END_SRC
 " orgCmntEnd)
 
@@ -283,7 +283,7 @@ NOTYET, counter has not been implemented yet.
 #+END_SRC
 
 #+RESULTS:
-: /bisos/tmp/2024-05-28-16-00-16/rtl-example.msgOrg
+: /bisos/tmp/2024-05-28-16-00-16/rtl-example.orgMsg
 
 " orgCmntEnd)
 
@@ -364,7 +364,7 @@ NOTYET, counter has not been implemented yet.
   " #+begin_org
 ** DocStr: LIKELY UNUSED Return nil if file does not exist. Based on existence, determine name of mailing content file.
 NOTYET: mode could come from ($composeFwrk (b:mtdt:mailing:getComposeFwrk|with-buffer <mailingBuf))
-We first look for content.msgOrg.
+We first look for content.orgMsg.
 #+end_org "
   (let* (
          ($filePath nil)

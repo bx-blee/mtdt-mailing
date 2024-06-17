@@ -296,32 +296,6 @@ Module description comes here.
 #+END_SRC
 " orgCmntEnd)
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailingItem:define|startMailing" :advice ()
-(orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailingItem:define|startMailing>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
-" orgCmntEnd)
-(defun b:mtdt:menu:mailingItem:define|startMailing (
-;;;#+END:
-                                                   )
-  " #+begin_org
-** DocStr: Return a menuItem vector. Requires dynamic update.
-#+end_org "
-  (nth 0
-   `(
-     [,(format "Run startMailing.sh")
-      (lsip-local-run-command "startMailing.sh")
-      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
-      ])))
-
-(orgCmntBegin "
-** Basic Usage:
-[[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:menu:mailingItem:define|setup-withCurBuffer)
-#+END_SRC
-" orgCmntEnd)
-
-
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:startMailing:main|define" :advice ()
 (orgCmntBegin "
@@ -361,6 +335,14 @@ Module description comes here.
 	,(s-- 11)
 	))
 
+    (defun b:mtdt:menu:mailingItem:define|startMailing ()
+      (nth 0
+           `(
+             [,(format "Run startMailing.sh")
+              (lsip-local-run-command "startMailing.sh")
+              :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+              ])))
+
     (easy-menu-add-item b:mtdt:menu:startMailing:main nil
                         (b:mtdt:menu:mailingItem:define|startMailing)
                         (s-- 2))
@@ -381,7 +363,79 @@ Module description comes here.
 ** Basic Usage:
 [[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
 #+BEGIN_SRC emacs-lisp
-(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))
+(popup-menu (symbol-value (b:mtdt:menu:startMailing:main|define)))
+#+END_SRC
+" orgCmntEnd)
+
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:customize:main|define" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:customize:main|define>>  --  -- Return b:mtdt:menu:customize:main  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:menu:customize:main|define (
+;;;#+END:
+                                &rest <namedArgs
+                                      )
+  " #+begin_org
+** DocStr: Return b:mtdt:menu:customize:main
+:active and :visible can be specified as <namedArgs.
+#+end_org "
+  (let (
+	(<visible (get-arg <namedArgs :visible t))
+	(<active (get-arg <namedArgs :active t))
+	($thisFuncName (compile-time-function-name))
+	)
+
+    (easy-menu-define
+      b:mtdt:menu:customize:main
+      nil
+      "DocStr of this menu --"
+      `(,(format (s-lex-format "Customize the current mailing"))
+	:help "Runs customize.sh"
+	:visible ,<visible
+	:active ,<active
+	,(s-- 2)
+	,(s-- 3)
+	,(s-- 4)
+        ,(s-- 5)
+        ,(s-- 6)
+	,(s-- 7)
+	,(s-- 8)
+	,(s-- 9)
+	,(s-- 10)
+	,(s-- 11)
+	))
+
+    (defun b:mtdt:menu:mailingItem:define|customize ()
+      (nth 0
+           `(
+             [,(format "Customize current buffer")
+              (b:mtdt:customize/buf (buffer-name (current-buffer)))
+              :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+              ])))
+
+    (easy-menu-add-item b:mtdt:menu:customize:main nil
+                        (b:mtdt:menu:mailingItem:define|customize)
+                        (s-- 2))
+
+    (easy-menu-add-item
+     b:mtdt:menu:customize:main
+     nil
+     (bx:menu:panelAndHelp|define
+      "/bisos/panels/blee-core/mail/_nodeBase_"
+      $thisFuncName
+      (intern (symbol-name (gensym))))
+     (s-- 11))
+
+    'b:mtdt:menu:customize:main
+    ))
+
+(orgCmntBegin "
+** Basic Usage:
+[[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
+#+BEGIN_SRC emacs-lisp
+(popup-menu (symbol-value (b:mtdt:menu:customize:main|define)))
 #+END_SRC
 " orgCmntEnd)
 
@@ -925,6 +979,10 @@ Module description comes here.
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
                         (b:mtdt:menu:startMailing:main|define)
+                        (s-- 6))
+
+    (easy-menu-add-item b:mtdt:menu:mailing:main nil
+                        (b:mtdt:menu:customize:main|define)
                         (s-- 7))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
