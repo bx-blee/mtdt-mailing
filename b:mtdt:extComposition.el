@@ -86,50 +86,6 @@ Module description comes here.
 " orgCmntEnd)
 ;;;#+END:
 
-;;;
-(defconst b:mtdt:compositionModel::ExtComposition "ExtComposition" "External Composition Model.")
-(defconst b:mtdt:compositionModel::NativeComposition "NativeComposition" "Native Composition Model.")
-
-(defvar b:mtdt:compositionModel
-  b:mtdt:compositionModel::NativeComposition
-  "Selected Composition Model.")
-
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:compositionModel|select" :advice ()
-(orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:compositionModel|select>>  --  -- Based on <model, select composition model.  [[elisp:(org-cycle)][| ]]
-" orgCmntEnd)
-(defun b:mtdt:compositionModel|select (
-;;;#+END:
-                                       <model
-                               )
-  " #+begin_org
-** DocStr: Based on <model, select composition model.
-#+end_org "
-  (let* (
-          ($inHere (b:log|entry (b:func$entry)))
-          )
-    (cond
-     ((eq <model b:mtdt:compositionModel::ExtComposition)
-      (setq b:mtdt:compositionModel <model))
-     ((eq <model b:mtdt:compositionModel::NativeComposition)
-      (setq b:mtdt:compositionModel <model))
-     (t
-      (setq b:mtdt:compositionModel nil)
-      (error "Bad input"))
-     )
-    b:mtdt:compositionModel))
-
-(orgCmntBegin "
-** Basic Usage:
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:compositionModel|select b:mtdt:compositionModel::ExtComposition)
-#+END_SRC
-
-#+RESULTS:
-: ExtComposition
-
-" orgCmntEnd)
-
 ;;;#+BEGIN:  b:elisp:defs/defcustom :defName "b:mtdt+compositionModel" :defValue "'b:mtdt+compositionModel::NativeComposition" :comment "/MENU/"
 (orgCmntBegin "
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defcustom  [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt+compositionModel>> ~'b:mtdt+compositionModel::NativeComposition~ -- /MENU/ -- Selected and effective compose framework as customizable choices.  [[elisp:(org-cycle)][| ]]
@@ -175,45 +131,11 @@ Module description comes here.
 
 
 
-;;;#+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :title "External Composition" :extraInfo "LaTeX (lcnt) editable content"
+;;;#+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :title "External Composition" :extraInfo "External (LaTeX, html, etc) editable content"
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _External Composition_: |]]  LaTeX (lcnt) editable content  [[elisp:(org-shifttab)][<)]] E|
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _External Composition_: |]]  External (LaTeX, html, etc) editable content  [[elisp:(org-shifttab)][<)]] E|
 " orgCmntEnd)
 ;;;#+END:
-
-
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:originate|with-file%%%" :advice ()
-(orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:originate|with-file%%%>>  --  -- Out of macro work of b:mtdt:originate$mailing-defun. ModuleLocal.  [[elisp:(org-cycle)][| ]]
-" orgCmntEnd)
-(defun b:mtdt:originate|with-file%%% (
-;;;#+END:
-                                    <mailingFilePath
-                                    args
-                                    )
-  " #+begin_org
-** DocStr: Out of macro work of b:mtdt:originate$mailing-defun. ModuleLocal.
-#+end_org "
-  (let* (
-         ($inHere (b:log|entry (b:func$entry)))
-	 ($mailingBuf (switch-to-buffer (find-file <mailingFilePath)))
-	 ($mailingParams (b:mtdt:mailing:params|from-buf $mailingBuf))
-         ($ephemeraMailingFilePath nil)
-	 (<extSrcBase (or (plist-get $mailingParams :extSrcBase) nil))
-	 )
-    (message (s-lex-format "mailingParams: ${$mailingParams} extSrcBase ${<extSrcBase}"))
-    (text-mode) ;; bxms-compose-from-base checks for major-mode
-    (bxms-compose-from-base (expand-file-name (file-name-directory <mailingFilePath)) args)
-    (display-buffer
-                (switch-to-buffer (b:mtdt:mailing|latest-unsent-mail-buf)))
-    ))
-
-(orgCmntBegin "
-** Basic Usage:
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:mailings|framedComposeWithFn (list (b:mtdt:name|funcName (symbol-name './examples/mailings/rtl-example.orgMsg))))
-#+END_SRC
-" orgCmntEnd)
 
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "bx:ephemera:dated|pathName-in" :advice ()
@@ -351,42 +273,6 @@ NOTYET, counter has not been implemented yet.
 #+RESULTS:
 : b:mtdt:mailings.el
 
-" orgCmntEnd)
-
-
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mailing:content|findFile%%%" :comment "Likely UNUSED" :advice ()
-(orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mailing:content|findFile%%%>>  -- Likely UNUSED -- LIKELY UNUSED Return nil if file does not exist. Based on existence, determine name of mailing content file.  [[elisp:(org-cycle)][| ]]
-" orgCmntEnd)
-(defun b:mtdt:mailing:content|findFile%%% (
-;;;#+END:
-                                        )
-  " #+begin_org
-** DocStr: LIKELY UNUSED Return nil if file does not exist. Based on existence, determine name of mailing content file.
-NOTYET: mode could come from ($composeFwrk (b:mtdt:mailing:getComposeFwrk|with-buffer <mailingBuf))
-We first look for content.orgMsg.
-#+end_org "
-  (let* (
-         ($filePath nil)
-         )
-    (cond
-     ((file-readable-p (setq $filePath (f-join default-directory "content.orgMsg")))
-      (find-file $filePath)
-      (org-msg-edit-mode)
-      )
-     ((file-readable-p (setq $filePath (f-join default-directory "content.mail")))
-      (find-file $filePath)
-      (message-mode)
-      )
-     (t
-      $filePath
-      ))))
-
-(orgCmntBegin "
-** Basic Usage:
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:mailing:content|findFile)
-#+END_SRC
 " orgCmntEnd)
 
 

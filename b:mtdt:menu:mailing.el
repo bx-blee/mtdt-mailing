@@ -182,18 +182,29 @@ Module description comes here.
 #+end_org "
   (nth 0
    `(
+     [,(format "With Current Buffer, Compose (based on header)")
+      (b:mtdt:mfp/compose (buffer-file-name))
+      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+      ])))
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailingItem:define|withCurBuf-natCompose" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailingItem:define|withCurBuf-natCompose>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:menu:mailingItem:define|withCurBuf-natCompose (
+;;;#+END:
+                                                   )
+  " #+begin_org
+** DocStr: Return a menuItem vector. Requires dynamic update.
+#+end_org "
+  (nth 0
+   `(
      [,(format "With Current Buffer, Native Compose")
       (b:mtdt:mfp/compose (buffer-file-name))
       :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
       ])))
 
-(orgCmntBegin "
-** Basic Usage:
-[[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:menu:mailingItem:define|setup-withCurBuffer)
-#+END_SRC
-" orgCmntEnd)
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailingItem:define|withCurBuf-extCompose" :advice ()
 (orgCmntBegin "
@@ -211,14 +222,6 @@ Module description comes here.
       (b:mtdt:mfp/extCompose (buffer-file-name))
       :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
       ])))
-
-(orgCmntBegin "
-** Basic Usage:
-[[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:menu:mailingItem:define|setup-withCurBuffer)
-#+END_SRC
-" orgCmntEnd)
 
 
 
@@ -272,9 +275,13 @@ Module description comes here.
                        (b:mtdt:menu:mailingItem:define|withCurBuf-compose)
                        (s-- 4))
 
+   (easy-menu-add-item b:mtdt:menu:withCurBuf:main nil
+                       (b:mtdt:menu:mailingItem:define|withCurBuf-natCompose)
+                       (s-- 5))
+
     (easy-menu-add-item b:mtdt:menu:withCurBuf:main nil
                        (b:mtdt:menu:mailingItem:define|withCurBuf-extCompose)
-                       (s-- 5))
+                       (s-- 6))
 
     (easy-menu-add-item
      b:mtdt:menu:withCurBuf:main
@@ -415,9 +422,14 @@ Module description comes here.
               :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
               ])))
 
-    (easy-menu-add-item b:mtdt:menu:customize:main nil
+
+    (b:var:custom:choices:menu:add|items
+     b:mtdt:menu:customize:main (s-- 5) 'b:mtdt+customize)
+
+   (easy-menu-add-item b:mtdt:menu:customize:main nil
                         (b:mtdt:menu:mailingItem:define|customize)
-                        (s-- 2))
+                        (s-- 7))
+
 
     (easy-menu-add-item
      b:mtdt:menu:customize:main
@@ -721,6 +733,23 @@ Module description comes here.
 " orgCmntEnd)
 
 
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|selMailing-compose" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|selMailing-compose>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:menuItem:define|selMailing-compose (
+;;;#+END:
+                                                 )
+  " #+begin_org
+** DocStr: Return a menuItem vector. Requires dynamic update.
+#+end_org "
+  (nth 0
+   `(
+     [,(s-lex-format "Compose ${b:mtdt:mailings:selected}")
+      (b:mtdt:mailings|framedComposeWithFns b:mtdt:mailings:selected)
+      :help "Compose with selected mailing"
+      ])))
+
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|selMailing-natCompose" :advice ()
 (orgCmntBegin "
@@ -755,134 +784,6 @@ Module description comes here.
       (b:mtdt:mailings|framedExtComposeWithFns b:mtdt:mailings:selected)
       :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
       ])))
-
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|radio-composeFramework" :advice ()
-(orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|radio-composeFramework>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
-" orgCmntEnd)
-(defun b:mtdt:menuItem:define|radio-composeFramework (
-;;;#+END:
-                                                      <nth
-                                                      )
-  " #+begin_org
-** DocStr: Return a menuItem vector. Requires dynamic update.
-#+end_org "
-  (nth <nth
-       `(
-         [
-          ,(format (s-lex-format "Describe Compose Framework:: ${b:mtdt:compose+framework}"))
-	  (describe-variable 'b:mtdt:compose+framework)
-	  :help "Describe current value of b:mtdt:compose+framework"
-	  :active t
-	  :visible t
-	  ]
-	 [
-	  "Basic"
-	  (b:mtdt:compose+framework|actuate b:mtdt:compose+framework::basic)
-	  :help "Select basic composition framework."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq  b:mtdt:compose+framework 'b:mtdt:compose+framework::basic)
-	  ]
-	 [
-	  "OrgMsg"
-	  (b:mtdt:compose+framework|actuate 'b:mtdt:compose+framework::orgMsg)
-	  :help "Select orgMsg composition framework."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq b:mtdt:compose+framework 'b:mtdt:compose+framework::orgMsg)
-	  ]
-	 [
-	  "LaTeX"
-	  (b:mtdt:compose+framework|actuate  'b:mtdt:compose+framework::latex)
-	  :help "Select latex composition framework."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq b:mtdt:compose+framework 'b:mtdt:compose+framework::latex)
-	  ]
-         [
-	  "HTML"
-	  (b:mtdt:compose+framework|actuate  'b:mtdt:compose+framework::html)
-	  :help "Select latex composition framework."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq b:mtdt:compose+framework 'b:mtdt:compose+framework::html)
-	  ]
-         [
-	  "OfSelMailing"
-	  (b:mtdt:compose+framework|actuate  'b:mtdt:compose+framework::ofSelMailing)
-	  :help "Select latex composition framework."
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq b:mtdt:compose+framework 'b:mtdt:compose+framework::ofSelMailing)
-	  ]
-         )))
-
-(orgCmntBegin "
-** Basic Usage:
-[[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:menuItem:define|radio-composeFramework 2)
-#+END_SRC
-
-#+RESULTS:
-
-" orgCmntEnd)
-
-
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|radio-compositionModel" :advice ()
-(orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menuItem:define|radio-compositionModel>>  --  -- Return a menuItem vector. Requires dynamic update.  [[elisp:(org-cycle)][| ]]
-" orgCmntEnd)
-(defun b:mtdt:menuItem:define|radio-compositionModel (
-;;;#+END:
-                                                      <nth
-                                                      )
-  " #+begin_org
-** DocStr: Return a menuItem vector. Requires dynamic update.
-#+end_org "
-  (nth <nth
-       `(
-         [
-	  ,(s-lex-format "Describe Selected Composition Model:: ${b:mtdt:compositionModel}")
-	  (describe-variable 'b:mtdt:compositionModel)
-	  :help "Describe current value of b:mtdt:compositionModel"
-	  :active t
-	  :visible t
-	  ]
-	 [
-	  ,(s-lex-format "${b:mtdt:compositionModel::ExtComposition} Model")
-	  (b:mtdt:compositionModel|select b:mtdt:compositionModel::ExtComposition)
-	  :help "Select Composition Model"
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq  b:mtdt:compositionModel b:mtdt:compositionModel::ExtComposition)
-	  ]
-	 [
-	  ,(s-lex-format "${b:mtdt:compositionModel::NativeComposition} Model")
-	  (b:mtdt:compositionModel|select b:mtdt:compositionModel::NativeComposition)
-	  :help "Select Composition Model"
-	  :active t
-	  :visible t
-	  :style radio
-	  :selected ,(eq  b:mtdt:compositionModel b:mtdt:compositionModel::NativeComposition)
-	  ]
-         )))
-
-(orgCmntBegin "
-** Basic Usage:
-[[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:main|define)))][This menu as an org link]]
-#+BEGIN_SRC emacs-lisp
-(b:mtdt:menuItem:define|radio-compositionModel 1)
-#+END_SRC
-" orgCmntEnd)
-
 
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:main|define" :advice ()
@@ -990,12 +891,16 @@ Module description comes here.
                         (s-- 8))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
+                        (b:mtdt:menuItem:define|selMailing-compose)
+                        (s-- 9))
+
+    (easy-menu-add-item b:mtdt:menu:mailing:main nil
                         (b:mtdt:menuItem:define|selMailing-natCompose)
                         (s-- 9))
 
     (easy-menu-add-item b:mtdt:menu:mailing:main nil
                         (b:mtdt:menuItem:define|selMailing-extCompose)
-                        (s-- 10))
+                        (s-- 9))
 
     (easy-menu-add-item
      b:mtdt:menu:mailing:main
