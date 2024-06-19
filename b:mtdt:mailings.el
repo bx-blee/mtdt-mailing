@@ -248,7 +248,7 @@ So, here is what I have,
 	:type '(choice
 	        (const :tag "m" b:mtdt:mailing+purpose::Mailing  "Distribution: No recipients, pre-made Native or External content")
 		(const :tag "t" b:mtdt:mailing+purpose::Template  "Template: Recipients, Always External content.")
-		(const :tag "g" b:mtdt:mailing+purpose::Mua  "Mua: (g for Gnus) For use by MUA for replys and forwards.")
+		(const :tag "r" b:mtdt:mailing+purpose::Response  "Response: (reply, forward) is through MUA/Gnus.")
 		(const :tag "a" b:mtdt:mailing+purpose::Any "Any: General purpose. For list preparation gets added to all of above.")
                 ))
 
@@ -358,7 +358,7 @@ Returns value of b:mtdt:mailng+purpose.
           ($inHere (b:log|entry (b:func$entry)))
           ($mailingPurposeLabel (b:var:custom:choices|getChoiceLabel
                                  'b:mtdt:mailing+purpose
-                                 'b:mtdt:mailing+purpose::Mua))
+                                 'b:mtdt:mailing+purpose::Response))
           )
     (apropos-internal (s-lex-format "b:mtdt:${$mailingPurposeLabel}/") 'commandp)))
 
@@ -448,7 +448,7 @@ Returns value of b:mtdt:mailng+purpose.
           ($inHere (b:log|entry (b:func$entry)))
           ($mailingPurposeLabel (b:var:custom:choices|getChoiceLabel
                                  'b:mtdt:mailing+purpose
-                                 'b:mtdt:mailing+purpose::Mua))
+                                 'b:mtdt:mailing+purpose::Response))
           )
     (apropos-internal (s-lex-format "b:mtdt:${$mailingPurposeLabel}/") 'commandp)))
 
@@ -547,7 +547,7 @@ Kills the mailingBuf.
                                <mailingBuf
                                )
    " #+begin_org
-** DocStr: RETURNS X-MailingPurpose specified as a string converted to ChoiceLable m,t,g,a.
+** DocStr: RETURNS X-MailingPurpose specified as a string converted to ChoiceLable m,t,r,a.
 #+end_org "
    (let* (
           ($inHere (b:trace|entry (b:func$entry)))
@@ -573,9 +573,9 @@ Kills the mailingBuf.
          (setResult 'b:mtdt:mailing+purpose::Mailing))
         ((s-equals? "template" (s-downcase $header))
          (setResult 'b:mtdt:mailing+purpose::Template))
-        ((s-equals? "mua" (s-downcase $header))
-         (setResult 'b:mtdt:mailing+purpose::Mua))
-        ((s-equals? "Any" (s-downcase $header))
+        ((s-equals? "response" (s-downcase $header))
+         (setResult 'b:mtdt:mailing+purpose::Response))
+        ((s-equals? "any" (s-downcase $header))
          (setResult 'b:mtdt:mailing+purpose::Any))
         (t
          (b|error (b|fmt$ "Unknown x-mailingpurpose = ${$header}")))
@@ -678,6 +678,10 @@ Kills the mailingBuf.
                                                     )
    " #+begin_org
 ** DocStr: RETURNS Specified Header as a string.
+Example usage is
+X-MailingParams: :compose native :extSrcBase nil
+or
+X-MailingParams: :compose external :extSrcBase .
 #+end_org "
    (let* (
           ($inHere (b:log|entry (b:func$entry)))
@@ -748,19 +752,25 @@ Kills the mailingBuf.
                              )
   " #+begin_org
 ** DocStr: From specified <mailingFilePath, obtain funcName, use [[b:mtdt:derive$func]] macro to defun funcName.
+If funcName was previously interned, uninter it, so that it can be recreated.
+This means multiple invockations with the same X-MailingName result in the last becoming effective.
 #+end_org "
     (let* (
           ($inHere (b:log|entry (b:func$entry)))
           ($funcName (b:mtdt:derive|funcName <mailingFilePath))
           )
+      (when (intern-soft $funcName)
+        (unintern $funcName))
+
       (b:mtdt:derive$func $funcName <mailingFilePath)
-      (intern $funcName)
+
+      (intern $funcName) ;; We want the return value to be the function symbol
      ))
 
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:derive|func (symbol-name './examples/mailings/rtl-example.orgMsg))
+(b:mtdt:derive|func (symbol-name './examples/mailings/m:rtl-example.orgMsg))
 #+END_SRC
 
 #+RESULTS:
@@ -881,11 +891,10 @@ Kills the mailingBuf.
   (interactive)
   (let* (
         ($inHere (b:log|entry (b:func$entry)))
-	($funcName (b:mtdt:derive|funcName <mailingFilePath))
-	($funcSymbol (intern $funcName))
+        $funcSymbol
 	)
-      (unless (commandp $funcSymbol)
-        (b:mtdt:derive|func <mailingFilePath))
+
+      (setq $funcSymbol (b:mtdt:derive|func <mailingFilePath))
 
       (message (s-lex-format "Derived  ${$funcSymbol} from ${<mailingFilePath}"))
       $funcSymbol

@@ -70,13 +70,13 @@ A library of dblock for b:elisp:file/xxx comeega-file-elements.
 
 ;;;#+BEGIN:  b:elisp:defs/dblockDefun :defName "org-dblock-write:b:mtdt:mailing/compose" :advice ("bx:dblock:control|wrapper")
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  dblockDfn  [[elisp:(outline-show-subtree+toggle)][||]]  <<org-dblock-write:b:mtdt:mailing/compose>> ~advice=(bx:dblock:control|wrapper)~ --   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  dblockDfn  [[elisp:(outline-show-subtree+toggle)][||]]  <<org-dblock-write:b:mtdt:mailing/compose>> ~(bx:dblock:control|wrapper)~ --  --   [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
 (advice-add 'org-dblock-write:b:mtdt:mailing/compose :around #'bx:dblock:control|wrapper)
 (defun org-dblock-write:b:mtdt:mailing/compose (<params)
 ;;;#+END:
    " #+begin_org
-** DocStr:
+** DocStr: This is used in org files for initiating mailings.
 #+end_org "
   (let* (
          (<governor (letGet$governor)) (<extGov (letGet$extGov))

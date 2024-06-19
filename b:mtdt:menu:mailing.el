@@ -134,7 +134,7 @@ Module description comes here.
    `(
      [,(format "With Current Buffer, Derive")
       (b:mtdt:mfp/derive (buffer-file-name))
-      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+      :help "Runs:: (b:mtdt:mfp/derive (buffer-file-name))"
       ])))
 
 (orgCmntBegin "
@@ -159,7 +159,7 @@ Module description comes here.
    `(
      [,(format "With Current Buffer, Derive And Select")
       (b:mtdt:mfp/deriveAndSelect (buffer-file-name))
-      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+      :help "Runs:: (b:mtdt:mfp/deriveAndSelect (buffer-file-name))"
       ])))
 
 (orgCmntBegin "
@@ -184,7 +184,7 @@ Module description comes here.
    `(
      [,(format "With Current Buffer, Compose (based on header)")
       (b:mtdt:mfp/compose (buffer-file-name))
-      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+      :help "Runs:: (b:mtdt:mfp/compose (buffer-file-name))"
       ])))
 
 
@@ -201,8 +201,8 @@ Module description comes here.
   (nth 0
    `(
      [,(format "With Current Buffer, Native Compose")
-      (b:mtdt:mfp/compose (buffer-file-name))
-      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+      (b:mtdt:mfp/natCompose (buffer-file-name))
+      :help "Runs:: (b:mtdt:mfp/natCompose (buffer-file-name))"
       ])))
 
 
@@ -220,7 +220,7 @@ Module description comes here.
    `(
      [,(format "With Current Buffer, External Compose")
       (b:mtdt:mfp/extCompose (buffer-file-name))
-      :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+      :help "Runs:: (b:mtdt:mfp/extCompose (buffer-file-name))"
       ])))
 
 
@@ -347,7 +347,7 @@ Module description comes here.
            `(
              [,(format "Run startMailing.sh")
               (lsip-local-run-command "startMailing.sh")
-              :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+              :help "Runs:: (lsip-local-run-command \"startMailing.sh\")"
               ])))
 
     (easy-menu-add-item b:mtdt:menu:startMailing:main nil
@@ -419,7 +419,7 @@ Module description comes here.
            `(
              [,(format "Customize current buffer")
               (b:mtdt:customize/buf (buffer-name (current-buffer)))
-              :help "Mail Composition Distribution and Tracking (MTDT) Setup With Current Buffer -- (mtdt:setup/with-curBuffer)"
+              :help "Runs:: (b:mtdt:customize/buf (buffer-name (current-buffer)))"
               ])))
 
 
