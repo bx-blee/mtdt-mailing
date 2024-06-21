@@ -1,0 +1,33 @@
+From: First Last <first.last@example.com>
+To: First Last <first.last@example.com>
+Return-Path: first.last@example.com
+X-Envelope: first.last@example.com
+X-Message-SMTP-Method: qmail
+Subject: Test Message -- Ignore -- Created with ${version}
+X-MailingName: t:test-customized
+X-MailingDoc: nil
+X-MailingParams: :compose native  :extSrcBase nil
+X-ComposeFwrk: orgMsg
+X-MTDT-Customize: ./t:test-customized.el
+X-MailingPurpose: Template
+--text follows this line--
+#+OPTIONS: html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \n:t d:nil
+#+STARTUP: hidestars indent inlineimages
+:PROPERTIES:
+:reply-to: nil
+:attachment: nil
+:alternatives: (text html)
+:END:
+
+#+BEGIN: bx:mtdt:content/actions
+#+BEGIN_COMMENT
+  [[elisp:(call-interactively 'org-msg-preview)][Browser Preview]] | [[elisp:(message-mode)][message-mode]] | [[elisp:(mtdt:setup-and-compose/with-curBuffer)][Compose]] | [[elisp:(mtdt:setup-and-extCompose/with-curBuffer)][ExtCompose]]
+#+END_COMMENT
+#+END:
+
+This is a *TEST MESSAGE* to be ignored.
+
+It constains customization strings such as ${date} and ${someConstant}.
+These are controled with the X-MTDT-Customize header.
+
+It uses X-ComposeFwrk: orgMsg

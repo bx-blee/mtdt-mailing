@@ -1,0 +1,40 @@
+From: First Last <first.last@example.com>
+Subject: سلام و احوال پرسی
+Return-Path: first.last@example.com
+X-Envelope: first.last@example.com
+X-MailingName: com.example@first.last-fa-org
+X-MailingPurpose: Mua
+X-MailingDoc: nil
+X-MailingParams: :type compose :extSrcBase nil
+X-ComposeFwrk: msgOrg
+X-Message-SMTP-Method: qmail
+--text follows this line--
+#+OPTIONS: html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \n:t d:nil
+#+STARTUP: hidestars indent inlineimages
+:PROPERTIES:
+:reply-to: nil
+:attachment: nil
+:alternatives: (text html)
+:END:
+
+#+BEGIN: bx:mtdt:content/actions
+#+BEGIN_COMMENT
+  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]] | [[elisp:(call-interactively 'org-msg-preview)][Browser Preview]] | [[elisp:(message-mode)][message-mode]] | [[elisp:(mcdt:setup-and-compose/with-curBuffer)][Compose]] | [[elisp:(mcdt:setup-and-originate/with-curBuffer)][Originate]]
+#+END_COMMENT
+#+END:
+
+
+#+BEGIN_EXPORT html
+<DIV dir="rtl">
+#+END_EXPORT
+
+سلام،
+
+امیدوارم خوب و خوش باشید.
+
+
+...محسن
+
+#+BEGIN_EXPORT html
+</DIV>
+#+END_EXPORT
