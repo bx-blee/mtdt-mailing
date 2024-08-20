@@ -929,10 +929,14 @@ This means multiple invockations with the same X-MailingName result in the last 
           ($mailingNamesList (list))
          )
      (dolist ($eachMailingFile <mailingFilesList)
-       (setq $mailingNamesList
-             (append
-              $mailingNamesList
-              (list (b:mtdt:derive/fromFile $eachMailingFile)))))
+       (if-when (f-exists? $eachMailingFile)
+         (setq $mailingNamesList
+               (append
+                $mailingNamesList
+                (list (b:mtdt:derive/fromFile $eachMailingFile)))))
+       (else-unless (f-exists? $eachMailingFile)
+         (b|warning (b|fmt$ "Missing file: ${$eachMailingFile} -- Skipped")))
+       )
      $mailingNamesList))
 
 
