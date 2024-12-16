@@ -46,6 +46,41 @@
 * [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /bashIcm/ :: [[elisp:(lsip-local-run-command "startMailing.sh -i examples")][startMailing.sh]]  [[elisp:(lsip-local-run-command "startMailing.sh -i visit")][visit]]  [[elisp:(lsip-local-run-command "startMailing.sh -i describe")][describe]] *|*  =Initial text, orgMsg= *|*   [[elisp:(org-shifttab)][<)]] E|
 ####+END:
 * ~lcnLcntMailingLib.sh~ is used both in ~startMailing.sh~ and also in ~seedLcntProc.sh~  |+
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Mailing Headers" :anchor "" :extraInfo "MTDT and Related"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Mailing Headers:* |]]  MTDT and Related  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** MTDT Headers
+|------------------+-----------------+--------------------+-----------------------------------------------------|
+| Header Name      | Values          | Implementation     | Comments                                            |
+|------------------+-----------------+--------------------+-----------------------------------------------------|
+| X-MailingName    | AnyText         | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | derive creates function  name maping to mailingFile |
+|------------------+-----------------+--------------------+-----------------------------------------------------|
+| X-MailingDoc     | nil             |                    |                                                     |
+| X-MailingDoc     | path            |                    | Informational - Path to file which created content  |
+|------------------+-----------------+--------------------+-----------------------------------------------------|
+| X-ComposeFwrk    | basic           | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | Plain Text                                          |
+| X-ComposeFwrk    | orgMsg          | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | *unsent buffer* is to be in OrgMsg mode               |
+| X-ComposeFwrk    | latex           | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | extSrcBase determines Native of External            |
+| X-ComposeFwrk    | html            | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | extSrcBase determines Native of External            |
+| X-ComposeFwrk    | ofSelMailing    | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | Used in Stensils for Replies/Forwards               |
+|------------------+-----------------+--------------------+-----------------------------------------------------|
+| X-MailingParams: | :type compose   |                    |                                                     |
+| X-MailingParams: | :extSrcBase nil |                    |                                                     |
+|------------------+-----------------+--------------------+-----------------------------------------------------|
+** Related Headers
+|-----------------------+---------+--------------------+-------------------|
+| Header Name           | Values  | Implementation     | Comments          |
+|-----------------------+---------+--------------------+-------------------|
+| Return-Path           | AnyText | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] |                   |
+| X-Envelope            | AnyText | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] |                   |
+|-----------------------+---------+--------------------+-------------------|
+| X-Message-SMTP-Method | qmail   |                    | Uses Qmail Inject |
+|-----------------------+---------+--------------------+-------------------|
+
+** B|
+
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Plain-Text Mailing Creation" :anchor "" :extraInfo "X-ComposeFwrk: plainText"
 * /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
 * [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Plain-Text Mailing Creation:* |]]  X-ComposeFwrk: plainText  [[elisp:(org-shifttab)][<)]] E|

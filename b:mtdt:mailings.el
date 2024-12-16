@@ -504,11 +504,11 @@ Returns value of b:mtdt:mailng+purpose.
 " orgCmntEnd)
 
 
-;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:header:file:get|mailingname" :advice ()
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:header:find-file:get|mailingname" :advice ()
 (orgCmntBegin "
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:header:file:get|mailingname>>  --  -- Return the value of x-mailingname field of header of <mailingFilePath.  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:header:find-file:get|mailingname>>  --  -- Return the value of x-mailingname field of header of <mailingFilePath.  [[elisp:(org-cycle)][| ]]
 " orgCmntEnd)
-(defun b:mtdt:header:file:get|mailingname (
+(defun b:mtdt:header:find-file:get|mailingname (
 ;;;#+END:
                                            <mailingFilePath
                                            )
@@ -536,6 +536,45 @@ Kills the mailingBuf.
 : com.example@first.last-fa-org
 
 " orgCmntEnd)
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:header:ofFile:get|mailingname" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:header:ofFile:get|mailingname>>  --  -- Return the value of x-mailingname field of header of <mailingFilePath.  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:header:ofFile:get|mailingname (
+;;;#+END:
+                                           <mailingFilePath
+                                           )
+   " #+begin_org
+** DocStr: Return the value of x-mailingname field of header of <mailingFilePath.
+May be called from within macros with <mailingFilePath and not the mailingBuf being available.
+x-mailingname should be all lower case.
+Kills the mailingBuf.
+#+end_org "
+   (let* (
+          ($inHere (b:log|entry (b:func$entry)))
+          ($mailingBuf (switch-to-buffer (find-file <mailingFilePath)))
+	  ($result)
+	 )
+    (save-excursion
+      (setq $result (b:mtdt:header:buf:get|mailingname $mailingBuf))
+      (kill-buffer $mailingBuf)
+      )
+    $result
+    ))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:header:file:get|mailingname (symbol-name './examples/mailings/rtl-example.orgMsg))
+#+END_SRC
+
+#+RESULTS:
+: com.example@first.last-fa-org
+
+" orgCmntEnd)
+
 
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:header:buf:get|mailingpurpose" :advice ()
@@ -903,7 +942,7 @@ This means multiple invockations with the same X-MailingName result in the last 
 (orgCmntBegin "
 ** Basic Usage:
 #+BEGIN_SRC emacs-lisp
-(b:mtdt:derive/fromFile (symbol-name './examples/mailings/rtl-example.orgMsg))
+(b:mtdt:derive/fromFile (symbol-name './examples/mailings/m:rtl-example.orgMsg))
 #+END_SRC
 
 #+RESULTS:
@@ -992,6 +1031,37 @@ This means multiple invockations with the same X-MailingName result in the last 
   "Selected Mailing.")
 
 
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mailings|selectWithFile" :advice () :comment "~SELECT~"
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mailings|selectWithFile>>  -- ~SELECT~ -- Select <mailingFunc by assigning it to b:mtdt:mailings:selected  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:mailings|selectWithFile (
+;;;#+END:
+                                       <mailingFilePath
+                                       )
+  " #+begin_org
+** DocStr: Select <mailingFilePath by assigning it to b:mtdt:mailings:selected
+#+end_org "
+  (let* (
+          ($inHere (b:log|entry (b:func$entry)))
+          ($funcSymbol (b:mtdt:derive/fromFile <mailingFilePath))
+          ($result $funcSymbol)
+          )
+    (b:mtdt:mailings|select  $funcSymbol)
+    $result))
+
+(orgCmntBegin "
+** Basic Usage:
+#+BEGIN_SRC emacs-lisp
+(b:mtdt:mailings|selectWithFile (symbol-name './examples/mailings/m:rtl-example.orgMsg))
+#+END_SRC
+
+#+RESULTS:
+: b:mtdt:m/com\.example@first\.last-fa-org
+
+" orgCmntEnd)
+
+
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:mailings|select" :advice () :comment "~SELECT~"
 (orgCmntBegin "
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:mailings|select>>  -- ~SELECT~ -- Select <mailingFunc by assigning it to b:mtdt:mailings:selected  [[elisp:(org-cycle)][| ]]
@@ -1007,7 +1077,7 @@ This means multiple invockations with the same X-MailingName result in the last 
           ($inHere (b:log|entry (b:func$entry)))
           ($result <mailingFunc)
           )
-     (setq b:mtdt:mailings:selected <mailingFunc)
+     (setq b:mtdt:mailings:selected (list <mailingFunc))
      $result))
 
 (orgCmntBegin "
@@ -1158,11 +1228,16 @@ NOTYET
     (let* (
         ($inHere (b:log|entry (b:func$entry)))
         ($mailingFilePath (call-interactively <mailingFunc))
+        ($curBuf)
+        ($result)
 	)
 
       (select-frame (make-frame-command))
       ;;; (b:mtdt:compose|with-file $mailingFilePath 0)
-      (b:mtdt:mfp/unsentBuf $mailingFilePath)
+      (setq $result (b:mtdt:mfp/unsentBuf $mailingFilePath))
+      (setq $curBuf (current-buffer))
+      (message (s-lex-format "${$inHere}:: Current Buffer: ${$curBuf}"))
+      $result
       ))
 
 (orgCmntBegin "
@@ -1427,8 +1502,73 @@ NOTYET
 	 )
     (save-current-buffer
       (display-buffer (switch-to-buffer $unsentMailBuf))
-      (b:mtdt:customize/controlledBuf $unsentMailBuf))
+      (b:mtdt:customize/controlledBuf $unsentMailBuf)
+      (setq $curBuf (current-buffer))
+      (message (s-lex-format "${$inHere}:: Current Buffer: ${$curBuf}"))
+      )
+    (setq $curBuf (current-buffer))
+    (message (s-lex-format "${$inHere}:: Current Buffer: ${$curBuf}"))
+    $unsentMailBuf
     ))
+
+
+;;;#+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :title "Left Overs To Be Sorted Out" :extraInfo "b:mtdt:mfp"
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _Left Overs To Be Sorted Out_: |]]  b:mtdt:mfp  [[elisp:(org-shifttab)][<)]] E|
+" orgCmntEnd)
+;;;#+END:
+
+
+;;
+;; (b:mtdt:mailing:getName|with-file%% "~/BUE/mailings/start/family.fa/blank/basicText.fa/content.mail")
+(defun b:mtdt:mailing:getName|with-file%% (<mailingFilePath)
+  "Return the value of x-mailingname field of header of <mailingFilePath.
+May be called from within macros with <mailingFilePath and not the mailingBuf being available.
+x-mailingname should be all lower case.
+Kills the mailingBuf."
+  (let* (
+	 ($mailingBuf (switch-to-buffer (find-file <mailingFilePath)))
+	 ($result)
+	 )
+    (save-excursion
+      (setq $result (b:mtdt:mailing:getName/with-buffer $mailingBuf))
+      (kill-buffer $mailingBuf)
+      )
+    $result
+    ))
+
+
+;;
+;; "~/BUE/mailings/start/family.fa/blank/basicText.fa/content.mail"
+;; (b:mtdt:mailing:getName/with-curBuffer)
+;;
+(defun b:mtdt:mailing:getName/with-buffer%% (<mailingBuf)
+  "Return the value of x-mailingname field of header. x-mailingname should be all lower case."
+  (interactive)
+  (let* (
+	 (result nil)
+	)
+    (setq result (bx:mail:header:field:get-from-buffer 'x-mailingname <mailingBuf))
+    result
+    )
+  )
+
+;;
+;; (bx:mail:header:field:get-from-buffer 'x-mailingparams (find-file "~/BUE/mailings/start/family.fa/blank/basicLatex.fa/basicLatex/mailingStatic/content.mail"))
+;; (message "%s" (b:mtdt:mailing:params|from-buf )
+;;
+(defun b:mtdt:mailing:params|from-buf%% (<mailingBuf)
+  "Return params as a list based on the string of X-MailingParams:.
+x-mailingparams should be all lower-case.
+params can be retrieved with plist."
+  (let* (
+	 ($paramsAsStr (bx:mail:header:field:get-from-buffer 'x-mailingparams <mailingBuf))
+	 (params (append (list :name 'someName)
+			 (read (concat "(" $paramsAsStr ")"))))
+	 )
+    (message "b:mtdt:mailing:params|from-buf: paramsAsStr=%s" $paramsAsStr)
+    params))
+
 
 (orgCmntBegin "
 ** Basic Usage:

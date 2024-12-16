@@ -1,6 +1,7 @@
 #+title: MTDT-MAILING: Mail Templating, Distribution and Tracking Emacs Package
 
 Panel Controls:: [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] [[elisp:(save-buffer)][Save]] [[elisp:(kill-buffer)][Quit]] [[elisp:(bury-buffer)][Bury]]
+Links: [[file:./panels/mtdt-mailing/_nodeBase_/fullUsagePanel-en.org]] (Package Blee Panel)
 
 * Introduction
 
