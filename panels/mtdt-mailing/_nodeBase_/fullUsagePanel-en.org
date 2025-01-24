@@ -55,7 +55,7 @@
 |------------------+-----------------+--------------------+-----------------------------------------------------|
 | Header Name      | Values          | Implementation     | Comments                                            |
 |------------------+-----------------+--------------------+-----------------------------------------------------|
-| X-MailingName    | AnyText         | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | derive creates function  name maping to mailingFile |
+| [[X-MailingName]]    | AnyText         | [[file:../../../b:mtdt:mailings.el][b:mtdt:mailings.el]] | derive creates function  name maping to mailingFile |
 |------------------+-----------------+--------------------+-----------------------------------------------------|
 | X-MailingDoc     | nil             |                    |                                                     |
 | X-MailingDoc     | path            |                    | Informational - Path to file which created content  |
@@ -80,7 +80,31 @@
 |-----------------------+---------+--------------------+-------------------|
 
 ** B|
-
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "X-MailingName Conventions" :anchor "X-MailingName" :extraInfo "Name of the Mailing"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *X-MailingName Conventions:* |]] <<X-MailingName>> Name of the Mailing  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** /X-Mailing-Name File/ can be used for different purposes, including:
+1) /CommenceMailing/.  No To Line, No Compleete Content,  From, Subject and Signature.
+2) /TemplateMailing/. To Line + No Complete Content, From, Subject and Signature.
+3) /DistributionMailing/. No To Line, Complete Content, From and Subject.
+4) /MuaStencilMailing/. MUA uses in Reply and Forward.
+** --------------
+** ~X-MailingName For CommenceMailings~ (No To Line, No Complete Content,  From, Subj and Sign)
+** fromInvDom@fromLocalPart&lang&composeFwrk$Purpose
+** Example:   X-MailingName: net.byname@alice&fa&org$Purpose
+** ~X-MailingName For Templates~ (To Line + No Complete Content, From, Subj and Sign)
+** fromInvDom@fromLocalPart&lang&composeFwrk$Purpose/t:destined
+** Example:   X-MailingName: net.byname@alice&fa&org$invitation/t:bob
+** ~X-MailingName For Mailings~ (For Distribution -- No To Line, Content, From and Subj )
+** fromInvDom@fromLocalPart&lang&composeFwrk$mailingName
+** Example:   X-MailingName: net.byname@alice&fa&org$birthAnnounce-2024
+** ~X-MailingName For MUA Stensils~ (MUA uses in Reply and Forward)
+** lang&composeFwrk$mailingName
+** Example:   X-MailingName: fa&org$birthAnnounce-2024
+** --------------
+** B|
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Plain-Text Mailing Creation" :anchor "" :extraInfo "X-ComposeFwrk: plainText"
 * /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
 * [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Plain-Text Mailing Creation:* |]]  X-ComposeFwrk: plainText  [[elisp:(org-shifttab)][<)]] E|
