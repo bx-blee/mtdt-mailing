@@ -492,7 +492,8 @@ Module description comes here.
        (list (s-- 4))
        (mapcar (lambda (<each)
 		 (vector (s-lex-format "Set b:mtdt:mailings:selected to ${<each}")
-			 `(b:mtdt:mailings|select '(,<each))
+			 ;;`(b:mtdt:mailings|select '(,<each))
+                         `(b:mtdt:mailings|select ',<each)
 			   :help (s-lex-format "Set b:mtdt:mailings:selected to ${<each}")
 			 ))
 	       (selections))
@@ -723,7 +724,6 @@ Module description comes here.
     'b:mtdt:menu:mailing:curMailingSelect
     ))
 
-
 (orgCmntBegin "
 ** Basic Usage:
 [[elisp:(popup-menu (symbol-value (b:mtdt:menu:mailing:define|selMailingSelect)))][This menu as an org link]]
@@ -731,6 +731,20 @@ Module description comes here.
 (popup-menu (symbol-value (b:mtdt:menu:mailing:define|derivedMailingInvoke)))
 #+END_SRC
 " orgCmntEnd)
+
+
+;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menu:mailing:popup/derivedMailingInvoke" :advice ()
+(orgCmntBegin "
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  defun      [[elisp:(outline-show-subtree+toggle)][||]]  <<b:mtdt:menu:mailing:popup/derivedMailingInvoke>>  --  -- Return b:mtdt:menu:mailing:curMailingSelect  [[elisp:(org-cycle)][| ]]
+" orgCmntEnd)
+(defun b:mtdt:menu:mailing:popup/derivedMailingInvoke (
+;;;#+END:
+                                                       )
+  " #+begin_org
+** DocStr: popup [[b:mtdt:menu:mailing:define|derivedMailingInvoke]]
+#+end_org "
+  (interactive)
+  (popup-menu (symbol-value (b:mtdt:menu:mailing:define|derivedMailingInvoke))))
 
 
 ;;;#+BEGIN:  b:elisp:defs/defun :defName "b:mtdt:menuItem:define|selMailing-compose" :advice ()

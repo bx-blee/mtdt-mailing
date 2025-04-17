@@ -1230,9 +1230,11 @@ NOTYET
         ($mailingFilePath (call-interactively <mailingFunc))
         ($curBuf)
         ($result)
+        ($frame (make-frame-command))
 	)
 
-      (select-frame (make-frame-command))
+      (raise-frame $frame)
+      (select-frame-set-input-focus $frame)
       ;;; (b:mtdt:compose|with-file $mailingFilePath 0)
       (setq $result (b:mtdt:mfp/unsentBuf $mailingFilePath))
       (setq $curBuf (current-buffer))
@@ -1317,7 +1319,7 @@ NOTYET
   (if-unless b:mtdt:mailings:selected
     (message (s-lex-format "Bad Usage: ${$inHere}: b:mtdt:mailings:selected is nil")))
   (if-when b:mtdt:mailings:selected
-    (b:mtdt:mailings|framedComposeWithFn b:mtdt:mailings:selected))
+    (b:mtdt:mailings|framedComposeWithFns b:mtdt:mailings:selected))
   ))
 
 (orgCmntBegin "
